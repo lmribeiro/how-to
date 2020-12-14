@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="col-lg-6">
                 <div class="card card-large-icons">
                     <div class="card-icon bg-primary text-white">
-                        <i class="far    fa-file-alt"></i>
+                        <i class="fas fa-file-alt"></i>
                     </div>
                     <div class="card-body">
                         <h4><?= Yii::t('app', 'Artigos'); ?></h4>
@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="col-lg-6">
                 <div class="card card-large-icons">
                     <div class="card-icon bg-primary text-white">
-                        <i class="far fa-list-alt"></i>
+                        <i class="fas fa-th-list"></i>
                     </div>
                     <div class="card-body">
                         <h4><?= Yii::t('app', 'Categorias'); ?></h4>
