@@ -4,7 +4,7 @@ namespace app\widgets;
 use Yii;
 use yii\base\Widget;
 
-class Alert extends Widget
+class MyAlert extends Widget
 {
     public $messageError;
     public $messageInfo;
