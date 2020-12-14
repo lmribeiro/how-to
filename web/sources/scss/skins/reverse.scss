@@ -1,0 +1,316 @@
+@import "../_variable";
+@import "../_mixin";
+
+
+body.skin-reverse {
+    background-color: color_darken(white, 3%);
+    .logo-login {
+        fill: color(primary);
+    }
+    .logo {
+        fill: color(white);
+    }
+    &.guest {
+        background: color(primary) url("../../../images/cover.jpg") center;
+    }
+    &.sidebar-mini {
+        .main-sidebar {
+
+            .sidebar-menu li.active a:hover, .main-sidebar .sidebar-menu li.active ul.dropdown-menu li a:hover, .main-sidebar .sidebar-menu li.active ul.dropdown-menu li a {
+                background-color: color(white);;
+            }
+
+            &:after {
+                background-color: color(primary);
+            }
+
+            .sidebar-menu {
+                li {
+                    &.active {
+                        > a {
+                            background-color: #fff;
+                            box-shadow: none;
+                            color: color(primary);
+                        }
+                    }
+                    &.active ul.dropdown-menu,
+                    ul.dropdown-menu {
+                        li {
+                            a {
+                                background-color: transparent;
+                                color: color_lighten(font, 10%);
+                                &:hover {
+                                    background-color: color_lighten(light, 7.6%);
+                                    color: color(dark);
+                                }
+                            }
+                            &.active {
+                                a {
+                                    background-color: transparent !important;
+                                    color: color(primary);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .main-sidebar {
+        background-color: color(primary);
+        .sidebar-brand {
+            .logo-color-1{
+                fill: #fff;
+            } 
+            .logo-color-2{
+                fill:  color(primary);
+            } 
+            .logo-color-3{
+                fill:  #fff;
+            } 
+            .logo-color-4{
+                fill:  color_darken(white, 5%);
+            } 
+            a {
+                color: #fff;
+            }
+        }
+        .sidebar-menu {
+            li {
+                a {
+                    color: white;
+                    &:hover {
+                        background-color: color_darken(primary, 5%);
+                    }
+                }
+                &.active {
+                    a,
+                    a:hover,
+                        ul.dropdown-menu li a:hover,
+                        ul.dropdown-menu li a {
+                        background-color: color_darken(primary, 5%);
+                    }
+                }
+                &.menu-header {
+                    color: whitesmoke;
+                }
+                ul.dropdown-menu {
+                    li {
+                        a {
+                            color: color_lighten(primary, 25%);
+                            &:hover {
+                                background-color: color(primary);
+                                color: #fff;
+                            }
+                        }
+                        &.active {
+                            a {
+                                color: #fff;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.base {
+        .navbar {
+            background-color: transparent;
+            box-shadow: none;
+            .nav-link.nav-link-user,
+            .nav-link {
+                color: color(white);
+                &:hover {
+                    color: color_darken(white, 15%);
+                }
+            }
+
+            .form-inline {
+                .btn,
+                .form-control {
+                    background-color: color_lighten(primary, 31.5%);
+                }
+            }
+        }
+        .jumbotron {
+            background-size: cover;
+            background: color(primary) url("../../../images/cover.jpg") center;
+            color: color(fontdark);
+            padding: 10rem 2rem;
+            width: 100%;
+            border-radius: 0;
+            margin-top: -20px;
+        }
+
+        .twitter-typeahead .tt-hint {
+            color: #999999;
+            border: transparent!important;
+        }
+
+        .site-footer {
+            position: relative;
+            background-color: #eeeeee;
+            color: color(fontdark);
+            padding: 30px 15px;
+            margin-top: 20px;
+        }
+        .site-footer #scroll-up {
+            position: absolute;
+            top: -14px;
+            right: 20%;
+            color: color(fontdark);
+            background-color: #eeeeee;
+            display: inline-block;
+            width: 34px;
+            height: 34px;
+            border-radius: 100%;
+            text-align: center;
+            font-size: 21px;
+            -webkit-transition: .2s ease;
+            -o-transition: .2s ease;
+            transition: .2s ease;
+        }
+
+        .footer-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            text-align: right;
+        }
+        p {
+            text-align: left!important;
+        }
+        .footer-menu li {
+            display: inline-block;
+            padding: 0 8px;
+        }
+        .footer-menu a {
+            color: color(fontdark);
+        }
+        .site-footer #scroll-up>.fa {
+            vertical-align: top;
+        }
+
+        @media (max-width: 768px) {
+            .site-footer #scroll-up {
+                right: 5%;
+            }
+        }
+        @media (max-width: 1024px) {
+            .site-footer #scroll-up {
+                right: 5%;
+            }
+        }
+    }
+
+    .card .card-icon {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .navbar-bg,
+    .navbar {
+        background-color: #fff;
+        .nav-link.nav-link-user,
+        .nav-link {
+            color: color(primary);
+            &:hover {
+                color: color_darken(primary, 15%);
+            }
+        }
+
+        .form-inline {
+            .btn,
+            .form-control {
+                background-color: color_lighten(grey, 40%);
+            }
+        }
+    }
+
+    .login-brand {
+        #logo {
+            height: 65px;
+        }
+        #logo-sm {
+            height: 46px;
+            border-radius: 3px;
+        }
+        .logo-color-1{
+            fill: #322F31;
+        } 
+        .logo-color-2{
+            fill:  color(primary);
+        } 
+        .logo-color-3{
+            fill:  #D73627;
+        } 
+        .logo-color-4{
+            fill:  #A31E22;
+        }
+    }
+
+    .modal-header .close {
+        margin: -1rem -1rem -1rem auto;
+    }
+
+    .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary {
+        color: color(white);
+        background: color(primary);
+        padding: 10px;
+    }
+    .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-default, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-default {
+        padding: 10px;
+    }
+    .bootstrap-switch .bootstrap-switch-label {
+        background: transparent;
+    }
+
+    .select2-container--krajee-bs4 .select2-results__option--highlighted[aria-selected] {
+        background-color: color_lighten(primary, 8%);
+        color: #fff;
+    }
+
+    .select2-container.select2-container--focus .select2-selection--multiple, .select2-container.select2-container--focus .select2-selection--single {
+        background-color: #fefeff;
+        border-color: #95a0f4;
+    }
+
+    .tt-dataset  {
+        padding: 10px;
+    }
+    .empty {
+        padding: 20px;
+    }
+
+    .page-item {
+        .page-link {
+            background-color: color_lighten(dark, 30%);
+            border-color: color_lighten(dark, 30%);
+            color: color(white);
+            border-radius: 3px;
+            margin: 0 3px;
+        }
+        .page-link:hover {
+            background-color: color(primary);
+            border-color: color(primary);
+        }
+        &.active .page-link {
+            background-color: color(primary);
+            border-color: color(primary);
+        }
+        &.disabled .page-link {
+            border-color: transparent;
+            background-color: color_lighten(dark, 40%);
+            opacity: .6;
+        }
+    }
+
+    .btn-dash {
+        background: color(white);
+        color: color(dark);
+    }
+    .btn-dash:hover  {
+        background: color(dark)!important;
+        color: color(white)!important;
+    }
+}

@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * @see http://www.yiiframework.com/
+ *
+ * @copyright Copyright (c) 2008 Yii Software LLC
+ * @license http://www.yiiframework.com/license/
+ */
+
+namespace app\assets;
+
+use yii\web\AssetBundle;
+
+/**
+ * Main application asset bundle.
+ *
+ * @author Qiang Xue <qiang.xue@gmail.com>
+ *
+ * @since 2.0
+ */
+class AppAsset extends AssetBundle
+{
+	public $basePath = '@webroot';
+	public $baseUrl = '@web';
+	public $css = [
+		'sources/scss/style.scss',
+		'sources/scss/components.css',
+		'sources/scss/skins/reverse.scss',
+		'sources/scss/skins/dark.scss',
+        'css/custom.css',
+		'css/toastr.min.css',
+	];
+	public $js = [
+		'js/jquery.nicescroll.min.js',
+		'js/plugin/bootstrap-notify/bootstrap-notify.min.js',
+		'js/toastr.min.js',
+		'js/stisla.js',
+		'js/scripts.js',
+		'js/custom.js',
+		'js/push.js',
+		'js/jquery.resize.js',
+	];
+	public $depends = ['yii\web\YiiAsset', 'yii\bootstrap4\BootstrapPluginAsset'];
+}

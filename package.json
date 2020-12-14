@@ -1,0 +1,34 @@
+{
+    "name": "omenu.online",
+    "version": "1.0.0",
+    "description": "omenu.online",
+    "main": "index.php",
+    "scripts": {
+        "dependencies": {
+            "": ""
+        }
+    },
+    "repository": {
+        "type": "git",
+        "url": "    "
+    },
+    "keywords": [
+        "php",
+        "Yii"
+    ],
+    "author": "lribeiro",
+    "license": "",
+    "devDependencies": {
+        "browserify": "^13.0.1",
+        "gulp": "^3.9.1",
+        "gulp-browserify": "^0.5.1",
+        "gulp-concat": "^2.6.0",
+        "gulp-cssmin": "^0.1.7",
+        "gulp-uglify": "^1.5.3",
+        "http-server": "^0.9.0",
+        "watchify": "^3.7.0"
+    },
+    "dependencies": {
+        "bootstrap": "^4.3.1"
+    }
+}
