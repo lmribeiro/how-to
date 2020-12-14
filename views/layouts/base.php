@@ -3,7 +3,7 @@
 /* @var $content string */
 
 use yii\helpers\Url;
-use app\widgets\Alert;
+use app\widgets\MyAlert;
 use app\assets\AppAsset;
 use yii\web\View;
 
@@ -20,7 +20,7 @@ AppAsset::register($this);
 
     <body class="base skin-reverse">
         <?php $this->beginBody(); ?>
-        <?= Alert::widget(); ?>
+        <?= MyAlert::widget(); ?>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="left: 0">
             <div class="container">
                 <a class="navbar-brand" href="<?= Yii::$app->controller->homeUrl ?>">

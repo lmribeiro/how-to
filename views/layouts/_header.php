@@ -23,6 +23,7 @@ if (Yii::$app->session->get('color')) {
 <title><?= Html::encode($this->title); ?></title>
 
 <!-- General CSS Files -->
+<script src="https://kit.fontawesome.com/52c8abb5f6.js" crossorigin="anonymous"></script>
 <script src="<?= Url::to(['@web/js/jquery-3.5.1.slim.min.js', true]) ?>" ></script>
 
 <link rel="apple-touch-icon" sizes="57x57" href="<?= Url::to('@web/images/favicon/apple-icon-57x57.png', true) ?>">
