@@ -27,7 +27,6 @@ class AppAsset extends AssetBundle
 		'sources/scss/components.css',
 		'sources/scss/skins/reverse.scss',
 		'sources/scss/skins/dark.scss',
-        'css/custom.css',
 		'css/toastr.min.css',
 	];
 	public $js = [

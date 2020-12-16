@@ -2,24 +2,24 @@ body.skin-reverse {
   background-color: #f7f7f7;
 }
 body.skin-reverse .logo-login {
-  fill: #14396C;
+  fill: #28abb9;
 }
 body.skin-reverse .logo {
   fill: #ffffff;
 }
 body.skin-reverse.guest {
-  background: #14396C url("../../../images/cover.jpg") center;
+  background: #28abb9 url("../../../images/cover.svg") center;
 }
 body.skin-reverse.sidebar-mini .main-sidebar .sidebar-menu li.active a:hover, body.skin-reverse.sidebar-mini .main-sidebar .main-sidebar .sidebar-menu li.active ul.dropdown-menu li a:hover, body.skin-reverse.sidebar-mini .main-sidebar .main-sidebar .sidebar-menu li.active ul.dropdown-menu li a {
   background-color: #ffffff;
 }
 body.skin-reverse.sidebar-mini .main-sidebar:after {
-  background-color: #14396C;
+  background-color: #28abb9;
 }
 body.skin-reverse.sidebar-mini .main-sidebar .sidebar-menu li.active > a {
   background-color: #fff;
   box-shadow: none;
-  color: #14396C;
+  color: #28abb9;
 }
 body.skin-reverse.sidebar-mini .main-sidebar .sidebar-menu li.active ul.dropdown-menu li a,
 body.skin-reverse.sidebar-mini .main-sidebar .sidebar-menu li ul.dropdown-menu li a {
@@ -34,46 +34,37 @@ body.skin-reverse.sidebar-mini .main-sidebar .sidebar-menu li ul.dropdown-menu l
 body.skin-reverse.sidebar-mini .main-sidebar .sidebar-menu li.active ul.dropdown-menu li.active a,
 body.skin-reverse.sidebar-mini .main-sidebar .sidebar-menu li ul.dropdown-menu li.active a {
   background-color: transparent !important;
-  color: #14396C;
+  color: #28abb9;
 }
 body.skin-reverse .main-sidebar {
-  background-color: #14396C;
+  background: #28abb9 url("../../../images/cover.svg") center;
 }
-body.skin-reverse .main-sidebar .sidebar-brand .logo-color-1 {
-  fill: #fff;
-}
-body.skin-reverse .main-sidebar .sidebar-brand .logo-color-2 {
-  fill: #14396C;
-}
-body.skin-reverse .main-sidebar .sidebar-brand .logo-color-3 {
-  fill: #fff;
-}
-body.skin-reverse .main-sidebar .sidebar-brand .logo-color-4 {
-  fill: #f2f2f2;
+body.skin-reverse .main-sidebar .sidebar-brand .logo-image {
+  fill: #ffffff;
 }
 body.skin-reverse .main-sidebar .sidebar-brand a {
-  color: #fff;
+  color: #ffffff;
 }
 body.skin-reverse .main-sidebar .sidebar-menu li a {
   color: white;
 }
 body.skin-reverse .main-sidebar .sidebar-menu li a:hover {
-  background-color: #102e56;
+  background-color: #2398a4;
 }
 body.skin-reverse .main-sidebar .sidebar-menu li.active a,
 body.skin-reverse .main-sidebar .sidebar-menu li.active a:hover,
 body.skin-reverse .main-sidebar .sidebar-menu li.active ul.dropdown-menu li a:hover,
 body.skin-reverse .main-sidebar .sidebar-menu li.active ul.dropdown-menu li a {
-  background-color: #102e56;
+  background-color: #2398a4;
 }
 body.skin-reverse .main-sidebar .sidebar-menu li.menu-header {
   color: whitesmoke;
 }
 body.skin-reverse .main-sidebar .sidebar-menu li ul.dropdown-menu li a {
-  color: #2872d7;
+  color: #7ed9e3;
 }
 body.skin-reverse .main-sidebar .sidebar-menu li ul.dropdown-menu li a:hover {
-  background-color: #14396C;
+  background-color: #28abb9;
   color: #fff;
 }
 body.skin-reverse .main-sidebar .sidebar-menu li ul.dropdown-menu li.active a {
@@ -93,11 +84,11 @@ body.skin-reverse.base .navbar .nav-link:hover {
 }
 body.skin-reverse.base .navbar .form-inline .btn,
 body.skin-reverse.base .navbar .form-inline .form-control {
-  background-color: #4484dc;
+  background-color: #99e1e9;
 }
 body.skin-reverse.base .jumbotron {
   background-size: cover;
-  background: #14396C url("../../../images/cover.jpg") center;
+  background: #28abb9 url("../../../images/cover.svg") center;
   color: #34395e;
   padding: 10rem 2rem;
   width: 100%;
@@ -171,13 +162,13 @@ body.skin-reverse .navbar-bg .nav-link.nav-link-user,
 body.skin-reverse .navbar-bg .nav-link,
 body.skin-reverse .navbar .nav-link.nav-link-user,
 body.skin-reverse .navbar .nav-link {
-  color: #14396C;
+  color: #28abb9;
 }
 body.skin-reverse .navbar-bg .nav-link.nav-link-user:hover,
 body.skin-reverse .navbar-bg .nav-link:hover,
 body.skin-reverse .navbar .nav-link.nav-link-user:hover,
 body.skin-reverse .navbar .nav-link:hover {
-  color: #08172b;
+  color: #1a717a;
 }
 body.skin-reverse .navbar-bg .form-inline .btn,
 body.skin-reverse .navbar-bg .form-inline .form-control,
@@ -185,31 +176,18 @@ body.skin-reverse .navbar .form-inline .btn,
 body.skin-reverse .navbar .form-inline .form-control {
   background-color: #f3f4f5;
 }
-body.skin-reverse .login-brand #logo {
-  height: 65px;
+body.skin-reverse .base-brand .logo-image {
+  fill: #ffffff;
 }
-body.skin-reverse .login-brand #logo-sm {
-  height: 46px;
-  border-radius: 3px;
-}
-body.skin-reverse .login-brand .logo-color-1 {
-  fill: #322F31;
-}
-body.skin-reverse .login-brand .logo-color-2 {
-  fill: #14396C;
-}
-body.skin-reverse .login-brand .logo-color-3 {
-  fill: #D73627;
-}
-body.skin-reverse .login-brand .logo-color-4 {
-  fill: #A31E22;
+body.skin-reverse .login-brand .logo-image {
+  fill: #ffffff;
 }
 body.skin-reverse .modal-header .close {
   margin: -1rem -1rem -1rem auto;
 }
 body.skin-reverse .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary, body.skin-reverse .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary {
   color: #ffffff;
-  background: #14396C;
+  background: #28abb9;
   padding: 10px;
 }
 body.skin-reverse .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-default, body.skin-reverse .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-default {
@@ -219,7 +197,7 @@ body.skin-reverse .bootstrap-switch .bootstrap-switch-label {
   background: transparent;
 }
 body.skin-reverse .select2-container--krajee-bs4 .select2-results__option--highlighted[aria-selected] {
-  background-color: #1a4b8e;
+  background-color: #36c4d4;
   color: #fff;
 }
 body.skin-reverse .select2-container.select2-container--focus .select2-selection--multiple, body.skin-reverse .select2-container.select2-container--focus .select2-selection--single {
@@ -240,12 +218,12 @@ body.skin-reverse .page-item .page-link {
   margin: 0 3px;
 }
 body.skin-reverse .page-item .page-link:hover {
-  background-color: #14396C;
-  border-color: #14396C;
+  background-color: #28abb9;
+  border-color: #28abb9;
 }
 body.skin-reverse .page-item.active .page-link {
-  background-color: #14396C;
-  border-color: #14396C;
+  background-color: #28abb9;
+  border-color: #28abb9;
 }
 body.skin-reverse .page-item.disabled .page-link {
   border-color: transparent;

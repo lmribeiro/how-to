@@ -11,13 +11,13 @@ body.skin-reverse {
         fill: color(white);
     }
     &.guest {
-        background: color(primary) url("../../../images/cover.jpg") center;
+        background: color(primary) url("../../../images/cover.svg") center;
     }
     &.sidebar-mini {
         .main-sidebar {
 
             .sidebar-menu li.active a:hover, .main-sidebar .sidebar-menu li.active ul.dropdown-menu li a:hover, .main-sidebar .sidebar-menu li.active ul.dropdown-menu li a {
-                background-color: color(white);;
+                background-color: color(white);
             }
 
             &:after {
@@ -57,22 +57,13 @@ body.skin-reverse {
         }
     }
     .main-sidebar {
-        background-color: color(primary);
+        background: color(primary) url("../../../images/cover.svg") center;
         .sidebar-brand {
-            .logo-color-1{
-                fill: #fff;
-            } 
-            .logo-color-2{
-                fill:  color(primary);
-            } 
-            .logo-color-3{
-                fill:  #fff;
-            } 
-            .logo-color-4{
-                fill:  color_darken(white, 5%);
-            } 
+            .logo-image{
+                fill: color(white);
+            }
             a {
-                color: #fff;
+                color: color(white);
             }
         }
         .sidebar-menu {
@@ -135,7 +126,7 @@ body.skin-reverse {
         }
         .jumbotron {
             background-size: cover;
-            background: color(primary) url("../../../images/cover.jpg") center;
+            background: color(primary) url("../../../images/cover.svg") center;
             color: color(fontdark);
             padding: 10rem 2rem;
             width: 100%;
@@ -227,25 +218,15 @@ body.skin-reverse {
         }
     }
 
+    .base-brand {
+        .logo-image{
+            fill:color(white);
+        }
+    }
+
     .login-brand {
-        #logo {
-            height: 65px;
-        }
-        #logo-sm {
-            height: 46px;
-            border-radius: 3px;
-        }
-        .logo-color-1{
-            fill: #322F31;
-        } 
-        .logo-color-2{
-            fill:  color(primary);
-        } 
-        .logo-color-3{
-            fill:  #D73627;
-        } 
-        .logo-color-4{
-            fill:  #A31E22;
+        .logo-image{
+            fill:color(white);
         }
     }
 

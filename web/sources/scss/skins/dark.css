@@ -97,17 +97,8 @@ body.skin-dark.base .nav-pills .nav-item .nav-link .badge {
   padding: 5px 8px;
   margin-left: 5px;
 }
-body.skin-dark.base .base-brand .logo-color-1 {
-  fill: #ffffff;
-}
-body.skin-dark.base .base-brand .logo-color-2 {
+body.skin-dark.base .base-brand .logo-image {
   fill: #222222;
-}
-body.skin-dark.base .base-brand .logo-color-3 {
-  fill: #D73627;
-}
-body.skin-dark.base .base-brand .logo-color-4 {
-  fill: #A31E22;
 }
 body.skin-dark.base .base-brand a {
   color: #fff;
@@ -218,7 +209,7 @@ body.skin-dark .page-link:focus {
   box-shadow: none;
 }
 body.skin-dark.sidebar-mini .main-sidebar:after {
-  background-color: #222222;
+  background: #222222 url("../../../images/cover.svg") center;
 }
 body.skin-dark.sidebar-mini .main-sidebar .sidebar-menu li.active > a {
   background-color: #fff;

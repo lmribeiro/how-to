@@ -147,18 +147,9 @@ body.skin-dark {
         }
 
         .base-brand {
-            .logo-color-1{
-                fill:color(white);
-            } 
-            .logo-color-2{
-                fill:  color(primary);
-            } 
-            .logo-color-3{
-                fill:  #D73627;
-            } 
-            .logo-color-4{
-                fill:  #A31E22;
-            } 
+            .logo-image{
+                fill:color(primary);
+            }
             a {
                 color: #fff;
             }
@@ -291,7 +282,7 @@ body.skin-dark {
     &.sidebar-mini {
         .main-sidebar {
             &:after {
-                background-color: color(primary);
+                background: color(primary) url("../../../images/cover.svg") center;
             }
 
             .sidebar-menu {
