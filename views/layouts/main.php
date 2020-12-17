@@ -12,7 +12,7 @@ $this->beginContent('@app/views/layouts/base.php');
 
 <div class="jumbotron">
     <div class="container">
-        <h1 class="display-3 text-center text-white"><?= $this->title ?></h1>
+        <h1 class="display-3 text-center text-white"><?= Yii::t('app', 'Knowledge Base') ?></h1>
         <div class="search">
             <div class="col-md-8 offset-md-2 text-white">
                 <?= $this->render('_search') ?>
@@ -48,14 +48,6 @@ $this->beginContent('@app/views/layouts/base.php');
         </div>
         <div class="col-md-4">
             <section class="section">
-                <h4 class="section-title"><?= Yii::t('app', 'Mais vistos') ?></h4>
-                <div class="card">
-                    <div class="">
-                        <?= ListPopularWidget::widget() ?>
-                    </div>
-                </div>
-            </section>
-            <section class="section">
                 <h4 class="section-title"><?= Yii::t('app', 'Categorias') ?></h4>
                 <div class="card">
                     <div class="">
@@ -68,6 +60,14 @@ $this->beginContent('@app/views/layouts/base.php');
                 <div class="card">
                     <div class="card-body">
                         <?= ListTagsWidget::widget() ?>
+                    </div>
+                </div>
+            </section>
+            <section class="section">
+                <h4 class="section-title"><?= Yii::t('app', 'Mais vistos') ?></h4>
+                <div class="card">
+                    <div class="">
+                        <?= ListPopularWidget::widget() ?>
                     </div>
                 </div>
             </section>

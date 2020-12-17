@@ -21,7 +21,7 @@ $template = '<div class="card" style="cursor: pointer;"><div class="card-header"
 
 Typeahead::widget([
     'name' => 'search',
-    'options' => ['placeholder' => Yii::t('app', 'Pesquisar por artigo...'), 'autocomplete' => 'off', 'class' => 'form-control form-control-lg'],
+    'options' => ['placeholder' => Yii::t('app', 'Procure nesta Knowledge Base...'), 'autocomplete' => 'off', 'class' => 'form-control form-control-lg text-center'],
     'pluginOptions' => ['highlight' => true],
     'pluginEvents' => [
         "typeahead:select" => "function(event, ui) { openQuestion(ui.id); }",

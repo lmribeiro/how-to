@@ -66,10 +66,8 @@ body.skin-dark.base .navbar .form-inline .form-control {
   background-color: #727272;
 }
 body.skin-dark.base .jumbotron {
-  background-color: #222222;
-  background: #222222;
   background-size: cover;
-  background-position: initial;
+  background: #222222;
   color: #ffffff;
   padding: 10rem 2rem;
   width: 99.8%;
@@ -98,41 +96,62 @@ body.skin-dark.base .nav-pills .nav-item .nav-link .badge {
   margin-left: 5px;
 }
 body.skin-dark.base .base-brand .logo-image {
-  fill: #222222;
+  fill: #ffffff;
 }
 body.skin-dark.base .base-brand a {
   color: #fff;
 }
 body.skin-dark.base .site-footer {
   position: relative;
-  background-color: #333333;
+  background-color: #222222;
   color: #ffffff;
   padding: 30px 15px;
   margin-top: 20px;
 }
 body.skin-dark.base .site-footer #scroll-up {
+  position: absolute;
+  top: -14px;
+  right: 20%;
   color: #ffffff;
-  background-color: #333333;
+  background-color: #222222;
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  border-radius: 100%;
+  text-align: center;
+  font-size: 21px;
+  -webkit-transition: 0.2s ease;
+  -o-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+body.skin-dark.base .footer-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+}
+body.skin-dark.base p {
+  text-align: left !important;
+}
+body.skin-dark.base .footer-menu li {
+  display: inline-block;
+  padding: 0 8px;
 }
 body.skin-dark.base .footer-menu a {
   color: #ffffff;
 }
-body.skin-dark.base .tt-dataset, body.skin-dark.base .tt-menu {
-  background: #363636;
+body.skin-dark.base .site-footer #scroll-up > .fa {
+  vertical-align: top;
 }
-body.skin-dark.base .tt-menu .tt-suggestion {
-  color: #ffffff;
+@media (max-width: 768px) {
+  body.skin-dark.base .site-footer #scroll-up {
+    right: 5%;
+  }
 }
-body.skin-dark.base .tt-menu .tt-suggestion.tt-cursor, body.skin-dark.base .tt-menu .tt-suggestion.tt-selectable:hover {
-  background-color: #222222;
-  color: #D73627;
-}
-body.skin-dark.base a.badge-light:hover, body.skin-dark.base a.badge-light:focus {
-  color: #D73627 !important;
-  background-color: #363636;
-}
-body.skin-dark.base .tt-selectable {
-  margin-bottom: 2px;
+@media (max-width: 1024px) {
+  body.skin-dark.base .site-footer #scroll-up {
+    right: 5%;
+  }
 }
 body.skin-dark .section .section-header h1 {
   color: #ffffff;
@@ -165,15 +184,6 @@ body.skin-dark .breadcrumb-item.active {
 }
 body.skin-dark .page-cover {
   background-color: #151515;
-}
-body.skin-dark .tumbler {
-  position: absolute;
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  background-color: #ffffff;
-  transition: margin-left 0.5s, background-color 0.5s;
-  margin-left: calc(100% - 30px);
 }
 body.skin-dark .page-item .page-link {
   background-color: #111;
@@ -234,17 +244,8 @@ body.skin-dark.sidebar-mini .main-sidebar .sidebar-menu li ul.dropdown-menu li.a
 body.skin-dark .main-sidebar {
   background-color: #222222;
 }
-body.skin-dark .main-sidebar .sidebar-brand .logo-color-1 {
+body.skin-dark .main-sidebar .sidebar-brand .logo-image {
   fill: #ffffff;
-}
-body.skin-dark .main-sidebar .sidebar-brand .logo-color-2 {
-  fill: #222222;
-}
-body.skin-dark .main-sidebar .sidebar-brand .logo-color-3 {
-  fill: #D73627;
-}
-body.skin-dark .main-sidebar .sidebar-brand .logo-color-4 {
-  fill: #A31E22;
 }
 body.skin-dark .main-sidebar .sidebar-brand a {
   color: #fff;
@@ -274,24 +275,8 @@ body.skin-dark .main-sidebar .sidebar-menu li ul.dropdown-menu li a:hover {
 body.skin-dark .main-sidebar .sidebar-menu li ul.dropdown-menu li.active a {
   color: #fff;
 }
-body.skin-dark .login-brand #logo {
-  height: 65px;
-}
-body.skin-dark .login-brand #logo-sm {
-  height: 46px;
-  border-radius: 3px;
-}
-body.skin-dark .login-brand .logo-color-1 {
+body.skin-dark .login-brand .logo-image {
   fill: #ffffff;
-}
-body.skin-dark .login-brand .logo-color-2 {
-  fill: #222222;
-}
-body.skin-dark .login-brand .logo-color-3 {
-  fill: #D73627;
-}
-body.skin-dark .login-brand .logo-color-4 {
-  fill: #A31E22;
 }
 body.skin-dark .navbar-bg,
 body.skin-dark .navbar {

@@ -18,7 +18,7 @@ AppAsset::register($this);
         <?php $this->head(); ?>
     </head>
 
-    <body class="base skin-reverse">
+    <body class="base skin-inverse">
         <?php $this->beginBody(); ?>
         <?= MyAlert::widget(); ?>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="left: 0">

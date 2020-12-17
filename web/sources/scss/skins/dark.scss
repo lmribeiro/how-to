@@ -10,7 +10,7 @@ info:           #3abaf4,
 warning:        #ffa426,
 danger:         #6777ef,
 light:          #e3eaef,
-grey:  		#868e96,
+grey:  		    #868e96,
 whitesmoke:     #f7f9f9,
 dark:           #333333,
 muted:          #98a6ad,
@@ -111,10 +111,8 @@ body.skin-dark {
         }
 
         .jumbotron {
-            background-color: color(primary);
-            background: color(primary);
             background-size: cover;
-            background-position: initial;
+            background: color(primary);
             color: color(white);
             padding: 10rem 2rem;
             width: 99.8%;
@@ -148,7 +146,7 @@ body.skin-dark {
 
         .base-brand {
             .logo-image{
-                fill:color(primary);
+                fill:color(white);
             }
             a {
                 color: #fff;
@@ -157,38 +155,57 @@ body.skin-dark {
 
         .site-footer {
             position: relative;
-            background-color: color(dark);
+            background-color: color(primary);
             color: color(white);
             padding: 30px 15px;
             margin-top: 20px;
         }
-
         .site-footer #scroll-up {
+            position: absolute;
+            top: -14px;
+            right: 20%;
             color: color(white);
-            background-color: color(dark);
+            background-color: color(primary);
+            display: inline-block;
+            width: 34px;
+            height: 34px;
+            border-radius: 100%;
+            text-align: center;
+            font-size: 21px;
+            -webkit-transition: .2s ease;
+            -o-transition: .2s ease;
+            transition: .2s ease;
         }
 
+        .footer-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            text-align: right;
+        }
+        p {
+            text-align: left!important;
+        }
+        .footer-menu li {
+            display: inline-block;
+            padding: 0 8px;
+        }
         .footer-menu a {
             color: color(white);
         }
-
-        .tt-dataset, .tt-menu {
-            background: color_lighten(primary, 8%);
-        }
-        .tt-menu .tt-suggestion {
-            color: color(white);
-        }
-        .tt-menu .tt-suggestion.tt-cursor, .tt-menu .tt-suggestion.tt-selectable:hover {
-            background-color: color(primary);
-            color: color(city360);
-        }
-        a.badge-light:hover, a.badge-light:focus {
-            color: color(city360)!important;
-            background-color: color_lighten(primary, 8%);
+        .site-footer #scroll-up>.fa {
+            vertical-align: top;
         }
 
-        .tt-selectable {
-            margin-bottom: 2px;
+        @media (max-width: 768px) {
+            .site-footer #scroll-up {
+                right: 5%;
+            }
+        }
+        @media (max-width: 1024px) {
+            .site-footer #scroll-up {
+                right: 5%;
+            }
         }
     } 
 
@@ -231,15 +248,6 @@ body.skin-dark {
     //Profile
     .page-cover {
         background-color: color_darken(primary, 5%);
-    }
-    .tumbler {
-        position: absolute;
-        height: 20px;
-        width: 20px;
-        border-radius: 50%;
-        background-color: color(white);
-        transition: margin-left 0.5s, background-color 0.5s;
-        margin-left: calc(100% - 30px);
     }
     .page-item {
         .page-link {
@@ -320,18 +328,9 @@ body.skin-dark {
     .main-sidebar {
         background-color: color(primary);
         .sidebar-brand {
-            .logo-color-1{
+            .logo-image{
                 fill:color(white);
-            } 
-            .logo-color-2{
-                fill:  color(primary);
-            } 
-            .logo-color-3{
-                fill:  #D73627;
-            } 
-            .logo-color-4{
-                fill:  #A31E22;
-            } 
+            }
             a {
                 color: #fff;
             }
@@ -376,24 +375,8 @@ body.skin-dark {
     }
 
     .login-brand {
-        #logo {
-            height: 65px;
-        }
-        #logo-sm {
-            height: 46px;
-            border-radius: 3px;
-        }
-        .logo-color-1{
+        .logo-image{
             fill:color(white);
-        } 
-        .logo-color-2{
-            fill:  color(primary);
-        } 
-        .logo-color-3{
-            fill:  #D73627;
-        } 
-        .logo-color-4{
-            fill:  #A31E22;
         }
     }
 
@@ -409,7 +392,6 @@ body.skin-dark {
                 color: color_darken(white, 30%);
             }
         }
-
         .form-inline {
             .btn,
             .form-control {

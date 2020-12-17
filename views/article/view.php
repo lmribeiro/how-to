@@ -14,7 +14,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 <h5 class="mb-1"><?= $model->{'title'} ?></h5>
             </div>
             <div class="col-12">
-                <small><b><?= Yii::t('app', 'Data') ?>:</b> <?= Yii::$app->formatter->asDate($model->created_at, 'd-MM-Y') ?></small> |
+                <small><b><?= Yii::t('app', 'Data') ?>
+                        :</b> <?= Yii::$app->formatter->asDate($model->created_at, 'd-MM-Y') ?></small> |
                 <small><b><?= Yii::t('app', 'Categoria') ?>:</b> <?= $model->articleCategory->{'name'} ?></small>
             </div>
         </div>
@@ -32,38 +33,39 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 </div>
 
-<div class="card card-light">
-    <div class="card-header bg-whitesmoke">
+<div class="card">
+    <div class="card-header">
         <h6><?= Yii::t('app', 'Qual a opinião sobre o artigo?') ?></h6>
     </div>
-    <div class="card-body bg-whitesmoke">
+    <div class="card-body">
         <div id="vote" class="d-flex justify-content-center">
-            <?= Html::a('<i class="fa fa-grin fa-3x"></i><br>'.Yii::t('app', 'Fiquei esclarecido'), ['/'], ['class' => 'btn btn-lg btn-link text-success', 'id' => 'vote-up']) ?>
-            <?= Html::a('<i class="fa fa-meh-rolling-eyes fa-3x"></i><br>'.Yii::t('app', 'Não fiquei esclarecido'), ['/'], ['class' => 'btn btn-lg btn-link text-danger', 'id' => 'vote-down']) ?>
+            <?= Html::a('<i class="fa fa-grin fa-3x"></i><br>' . Yii::t('app', 'Ajudou'), ['/'], ['class' => 'btn btn-lg btn-link text-success', 'id' => 'vote-up']) ?>
+            <?= Html::a('<i class="fa fa-meh-rolling-eyes fa-3x"></i><br>' . Yii::t('app', 'Não ajudou'), ['/'], ['class' => 'btn btn-lg btn-link text-danger', 'id' => 'vote-down']) ?>
         </div>
     </div>
 </div>
 
-<section class="section">
-    <h4 class="section-title"><?= Yii::t('app', 'Artigos relacionados') ?></h4>
-    <div class="card">
-        <div class="card-body">
-            <ul class="nav flex-column">
-                <?php foreach ($model->relatedArticles() as $article) : ?>
-                    <?php $article = $article->article; ?>
-                    <li class="nav-item">
-                        <?= Html::a($article->{"title"}, ['article/view', 'id' => $article->id]) ?>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
+<?php if ($model->relatedArticles()) { ?>
+    <section class="section">
+        <h4 class="section-title"><?= Yii::t('app', 'Artigos relacionados') ?></h4>
+        <div class="card">
+            <div class="card-body">
+                <ul class="nav flex-column">
+                    <?php foreach ($model->relatedArticles() as $article) : ?>
+                        <?php $article = $article->article; ?>
+                        <li class="nav-item">
+                            <?= Html::a($article->{"title"}, ['article/view', 'id' => $article->id]) ?>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
         </div>
-    </div>
-</section>
-
+    </section>
+<?php } ?>
 
 <?php
 $id = Yii::$app->controller->actionParams['id'];
-$msgOk = '<p>'.Yii::t("app", "Obrigado pela sua opinião").'</p>';
+$msgOk = '<p>' . Yii::t("app", "Obrigado pela sua opinião") . '</p>';
 
 $script = <<< JS
 $('#vote-up').click(function(e) {
@@ -80,7 +82,7 @@ $('#vote-up').click(function(e) {
         success: function(response) {
             $("#vote").html("$msgOk");
         }
-    });
+    })
 });
 $('#vote-down').click(function(e) {
     e.preventDefault();
@@ -96,7 +98,7 @@ $('#vote-down').click(function(e) {
         success: function(response) {
             $("#vote").html("$msgOk");
         }
-    });
+    })
 });
 JS;
 $this->registerJs($script);
