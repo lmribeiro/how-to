@@ -133,9 +133,7 @@ let update_sidebar_tooltip = function(mini) {
 
     if (!mini) {
         $(".main-sidebar .sidebar-menu > li > ul .dropdown-title").remove();
-        $(".main-sidebar .sidebar-menu > li > a").removeAttr('data-toggle');
-        $(".main-sidebar .sidebar-menu > li > a").removeAttr('data-original-title');
-        $(".main-sidebar .sidebar-menu > li > a").removeAttr('title');
+        $(".main-sidebar .sidebar-menu > li > a").removeAttr('data-toggle').removeAttr('data-original-title').removeAttr('title');
     } else {
         $(".main-sidebar .sidebar-menu > li").each(function() {
             let me = $(this);

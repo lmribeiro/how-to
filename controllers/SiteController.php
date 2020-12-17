@@ -4,6 +4,9 @@ namespace app\controllers;
 
 use app\models\Article;
 use Yii;
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
+use yii\web\Response;
 
 class SiteController extends KbController
 {
@@ -12,7 +15,7 @@ class SiteController extends KbController
     {
         return [
             'access' => [
-                'class' => \yii\filters\AccessControl::className(),
+                'class' => AccessControl::className(),
                 'only' => ['index'],
                 'rules' => [
                     [
@@ -23,7 +26,7 @@ class SiteController extends KbController
                 ],
             ],
             'verbs' => [
-                'class' => \yii\filters\VerbFilter::className(),
+                'class' => VerbFilter::className(),
                 'actions' => [],
             ],
         ];
@@ -44,5 +47,16 @@ class SiteController extends KbController
         return $this->render('index', [
             'articles' => $articles,
         ]);
+    }
+
+    /**
+     * Set/remove night mode
+     *
+     * @return Response true
+     */
+    public function actionTheme($id): Response
+    {
+        Yii::$app->session->set('theme', $id);
+        return $this->redirect(Yii::$app->request->referrer);
     }
 }

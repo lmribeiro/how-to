@@ -11,6 +11,7 @@ use app\models\ResetPassword;
 use app\models\SetPasswordForm;
 use Yii;
 use yii\filters\AccessControl;
+use yii\web\Response;
 
 class AuthController extends KbController
 {
@@ -149,39 +150,6 @@ class AuthController extends KbController
         ]);
     }
 
-    public function actionSidebar()
-    {
-        $min = Yii::$app->request->post('min') == 'true' ? true : false;
-        Yii::$app->session->set('min_sidebar', $min);
-        return true;
-    }
-
-    public function actionTheme()
-    {
-        $min = Yii::$app->request->post('min', false) == 'true' ? true : false;
-        Yii::$app->session->set('my_theme', $min);
-        return true;
-    }
-
-    public function actionNotifications()
-    {
-        $merchant = Merchant::findOne(Yii::$app->user->identity->merchant_id);
-        $key = Yii::$app->request->post('key', 'browser_notifications');
-        $val = Yii::$app->request->post('val', 0);
-
-        if ($key === 'browser_notifications' && $val == 0) {
-            $merchant->browser_notifications = 0;
-            $merchant->sound_notifications = 0;
-        } else {
-            $merchant->$key = $val;
-        }
-
-        if ($merchant->save()) {
-            return true;
-        }
-        return false;
-    }
-
     /**
      * Reset Password.
      */
@@ -279,8 +247,9 @@ class AuthController extends KbController
      */
     public function actionLogout()
     {
+        $theme = Yii::$app->session->get('theme', false);
         Yii::$app->user->logout();
-
+        Yii::$app->session->set('theme', $theme);
         return $this->redirect('/');
     }
 

@@ -1,10 +1,11 @@
 <?php
-/* @var $this \yii\web\View */
+/* @var $this View */
 /* @var $content string */
 
 use app\assets\AppAsset;
+use yii\web\View;
 use yii\widgets\Breadcrumbs;
-use app\widgets\Alert;
+use app\widgets\MyAlert;
 use app\widgets\Modals;
 
 AppAsset::register($this);
@@ -17,10 +18,10 @@ AppAsset::register($this);
         <?php include __DIR__.'/_header.php'; ?>
         <?php $this->head(); ?>
     </head>
-    <body class="skin-reverse <?= Yii::$app->session->get('my_theme') ? 'skin-dark' : ''; ?> <?= Yii::$app->session->get('min_sidebar') ? 'sidebar-mini' : ''; ?>">
+    <body class="skin-reverse <?= Yii::$app->session->get('theme') ? 'skin-dark' : ''; ?> <?= Yii::$app->session->get('min_sidebar') ? 'sidebar-mini' : ''; ?>">
         <?php $this->beginBody(); ?>
 
-        <?= Alert::widget(); ?>
+        <?= MyAlert::widget(); ?>
 
         <div id="app">
             <div class="main-wrapper main-wrapper-1">

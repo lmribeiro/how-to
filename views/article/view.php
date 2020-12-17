@@ -1,7 +1,9 @@
 <?php
 
+use app\models\Article;
 use yii\helpers\Html;
 
+/** @var Article $model */
 $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => $model->articleCategory->{'name'}, 'url' => ['category/view', 'id' => $model->articleCategory->id]];
 $this->params['breadcrumbs'][] = $this->title;

@@ -17,13 +17,26 @@ class Nav
         $module = '/admin';
         $menu = [];
         $settingsItems = [];
-        $userItems = [];
+
+        $setting = [
+            'icon' => 'fas fa-cog',
+            'class' => '',
+            'name' => Yii::t('app', 'Gestão'),
+            'action' => Url::to(["$module/dashboard"]),
+        ];
+
+        $add = [
+            'icon' => 'fas fa-plus',
+            'class' => '',
+            'name' => Yii::t('app', 'Adicionar Artigo'),
+            'action' => Url::to(["/article/create"]),
+        ];
 
         $profile = [
             'icon' => 'far fa-user',
             'class' => '',
             'name' => Yii::t('app', 'Perfil'),
-            'action' => Url::to(["$module/admin/view", 'id' => Yii::$app->user->identity->id]),
+            'action' => Url::to(["/user/view", 'id' => Yii::$app->user->identity->id]),
         ];
 
         $logout = [
@@ -33,19 +46,19 @@ class Nav
             'action' => Url::to(["/auth/logout"]),
         ];
 
-        $setting = [
-            'icon' => 'fas fa-cog',
-            'class' => '',
-            'name' => Yii::t('app', 'Gestão'),
-            'action' => Url::to(["$module/dashboard"]),
-        ];
+        switch (Yii::$app->user->identity->role) {
+            case "ADMIN":
+                array_push($settingsItems, $setting);
+                array_push($settingsItems, $add);
+                break;
+            case "EDITOR":
+                array_push($settingsItems, $add);
+                break;
+        }
 
-
-        array_push($settingsItems, $setting);
         array_push($settingsItems, $profile);
         array_push($settingsItems, $logout);
 
-        // Create categories
         $settings = [
             'name' => Yii::t('app', 'MENU'),
             'items' => $settingsItems,

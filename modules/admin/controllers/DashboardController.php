@@ -13,4 +13,10 @@ class DashboardController extends BoController
         return $this->render('index');
     }
 
+    public function actionSidebar(): bool
+    {
+        Yii::$app->session->set('minSidebar', Yii::$app->request->post('min', false));
+        return true;
+    }
+
 }

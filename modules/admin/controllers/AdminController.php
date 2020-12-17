@@ -50,10 +50,8 @@ class AdminController extends BoController
 	 */
 	public function actionView($id)
 	{
-		$model = $this->findModel($id);
-
 		return $this->render('view', [
-			'model' => $model,
+			'model' => $this->findModel($id),
 		]);
 	}
 
@@ -67,9 +65,6 @@ class AdminController extends BoController
 		$model = new Admin();
 
 		if ($model->load(Yii::$app->request->post())) {
-			if (Yii::$app->user->identity->role == "MERCHANT") {
-				$model->merchant_id = Yii::$app->user->identity->merchant_id;
-			}
 
 			$model->generatePasswordResetToken();
 			$model->generateAuthKey();
@@ -120,12 +115,7 @@ class AdminController extends BoController
 	 */
 	public function actionDelete($id)
 	{
-		$model = $this->findModel($id);
-		if (!($this->access('ADMIN', $model->merchant_id == $this->admin->merchant_id))) {
-			return $this->redirect(['index']);
-		}
-		$model->delete();
-
+		$this->findModel($id)->delete();
 		Yii::$app->getSession()->setFlash('success', Yii::t('app', 'Apagado com sucesso.'));
 		return $this->redirect(['index']);
 	}

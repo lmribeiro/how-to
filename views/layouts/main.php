@@ -1,10 +1,10 @@
 <?php
 
-use yii\widgets\Breadcrumbs;
 use app\components\ListCategoriesWidget;
 use app\components\ListPopularWidget;
 use app\components\ListTagsWidget;
 use yii\helpers\Url;
+use yii\widgets\Breadcrumbs;
 
 $this->beginContent('@app/views/layouts/base.php');
 
@@ -16,6 +16,12 @@ $this->beginContent('@app/views/layouts/base.php');
         <div class="search">
             <div class="col-md-8 offset-md-2 text-white">
                 <?= $this->render('_search') ?>
+            </div>
+            <div class="col-md-8 offset-md-2 text-center">
+                <br/>
+                <a href="#" class="mt-5 text-uppercase text-white">
+                    <?= Yii::t('app', 'Ver as FAQs'); ?>
+                </a>
             </div>
         </div>
     </div>
@@ -31,7 +37,7 @@ $this->beginContent('@app/views/layouts/base.php');
                 ],
                 'encodeLabels' => false,
                 'homeLink' => [
-                    'label' => '<i class="fas fa-graduation-cap"></i> '.Yii::t('app', 'Knowledge Base'),
+                    'label' => '<i class="fas fa-graduation-cap"></i> ' . Yii::t('app', 'Knowledge Base'),
                     'url' => Url::to(['/']),
                 ],
                 'itemTemplate' => '<li class="breadcrumb-item">{link}</li>',
@@ -56,18 +62,18 @@ $this->beginContent('@app/views/layouts/base.php');
                 </div>
             </section>
             <section class="section">
-                <h4 class="section-title"><?= Yii::t('app', 'Tags') ?></h4>
-                <div class="card">
-                    <div class="card-body">
-                        <?= ListTagsWidget::widget() ?>
-                    </div>
-                </div>
-            </section>
-            <section class="section">
                 <h4 class="section-title"><?= Yii::t('app', 'Mais vistos') ?></h4>
                 <div class="card">
                     <div class="">
                         <?= ListPopularWidget::widget() ?>
+                    </div>
+                </div>
+            </section>
+            <section class="section">
+                <h4 class="section-title"><?= Yii::t('app', 'Tags') ?></h4>
+                <div class="card">
+                    <div class="card-body">
+                        <?= ListTagsWidget::widget() ?>
                     </div>
                 </div>
             </section>

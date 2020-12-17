@@ -12,7 +12,9 @@ use yii\helpers\Html;
         <div class="card-header">
             <div class="row">
                 <div class="col-12">
-                    <h5 class="mb-1"><?= $article->title ?></h5>
+                    <h5 class="mb-1">
+                        <?= Html::a($article->title, ['article/view', 'id' => $article->id], ['class' => '']) ?>
+                    </h5>
                 </div>
                 <div class="col-12">
                     <small><b><?= Yii::t('app', 'Data') ?>

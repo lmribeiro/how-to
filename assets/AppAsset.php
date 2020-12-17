@@ -36,8 +36,6 @@ class AppAsset extends AssetBundle
 		'js/stisla.js',
 		'js/scripts.js',
 		'js/custom.js',
-		'js/push.js',
-		'js/jquery.resize.js',
 	];
 	public $depends = ['yii\web\YiiAsset', 'yii\bootstrap4\BootstrapPluginAsset'];
 }

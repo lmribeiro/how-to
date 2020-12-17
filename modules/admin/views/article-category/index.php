@@ -16,7 +16,7 @@ $this->params['modals'][] = 'modal';
 	<div class="card-header">
 		<h4><?= Html::encode($this->title) ?></h4>
 		<div class="card-header-action">
-			<?= Html::a('<i class="fas fa-plus"></i> ' . Yii::t('app', 'Novo'), ['create'], ['class' => 'btn btn-icon icon-left btn-success']); ?>
+			<?= Html::a('<i class="fas fa-plus"></i> ' . Yii::t('app', 'Nova'), ['create'], ['class' => 'btn btn-icon icon-left btn-success']); ?>
 		</div>
 	</div>
 
@@ -27,7 +27,7 @@ $this->params['modals'][] = 'modal';
 			'filterModel' => $searchModel,
 			'columns' => [
 				'name',
-				$actionCol = Yii::$app->params['actions'](['template' => '{view}{update}{delete}']),
+				$actionCol = Yii::$app->params['actions'](['template' => '{update}{delete}']),
 			],
 		]); ?>
 	</div>

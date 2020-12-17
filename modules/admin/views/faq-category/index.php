@@ -27,7 +27,7 @@ $this->params['modals'][] = 'modal';
 			'filterModel' => $searchModel,
 			'columns' => [
 				'name',
-				$actionCol = Yii::$app->params['actions'](['template' => '{view}{update}{delete}']),
+				$actionCol = Yii::$app->params['actions'](['template' => '{update}{delete}']),
 			],
 		]); ?>
 	</div>

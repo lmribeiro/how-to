@@ -67,7 +67,7 @@ class ArticleCategoryController extends BoController
         $model = new ArticleCategory();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
         }
 
         return $this->render('create', [
@@ -87,7 +87,8 @@ class ArticleCategoryController extends BoController
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            Yii::$app->getSession()->setFlash('success', Yii::t('app', 'Editada com sucesso.'));
+            return $this->redirect(['index']);
         }
 
         return $this->render('update', [
@@ -105,7 +106,6 @@ class ArticleCategoryController extends BoController
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
-
         return $this->redirect(['index']);
     }
 

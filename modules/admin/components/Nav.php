@@ -17,7 +17,6 @@ class Nav
         $module = '/admin';
         $menu = [];
         $settingsItems = [];
-        $userItems = [];
 
         $profile = [
             'icon' => 'far fa-user',
@@ -40,27 +39,17 @@ class Nav
             'action' => Url::to(["$module/settings"]),
         ];
 
-
         array_push($settingsItems, $setting);
-        array_push($userItems, $profile);
-        array_push($userItems, $logout);
+        array_push($settingsItems, $profile);
+        array_push($settingsItems, $logout);
 
-        // Create categories
         $settings = [
-            'name' => Yii::t('app', 'Definições'),
+            'name' => Yii::t('app', 'Menu'),
             'items' => $settingsItems,
             'divider' => true,
         ];
 
-        $user = [
-            'name' => Yii::$app->user->identity->name,
-            'items' => $userItems,
-            'divider' => false,
-        ];
-
         array_push($menu, $settings);
-        array_push($menu, $user);
-
 
         return $menu;
     }

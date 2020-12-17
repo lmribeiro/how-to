@@ -2,7 +2,7 @@
 @import "../_mixin";
 
 $colors: (
-city360:        #D73627,
+brand:          #28abb9,
 primary:        #222222,
 secondary:      #cdd3d8,
 success:        #63ed7a,
@@ -38,8 +38,12 @@ body.skin-dark {
         color: color(white);
     }
 
+    a.badge-light:hover, a.badge-light:focus {
+        background-color: color(brand);
+    }
+
     .bg-light {
-        background-color: color_lighten(city360, 8%) !important;
+        background-color: color_lighten(brand, 8%) !important;
     }
 
     .media .media-title a {
@@ -47,7 +51,7 @@ body.skin-dark {
     }
 
     &.guest {
-        background-color: color(primary);
+        background: color(primary) url("../../../images/cover-dark.svg") center;
         .card.card-primary {
             background-color: color_lighten(primary, 8%);
         }
@@ -56,7 +60,7 @@ body.skin-dark {
             text-decoration: underline;
         }
         .dropdown-item:hover {
-            color: color(city360)!important;
+            color: color(brand)!important;
             background-color:  rgba(255, 255, 255, 0.09);
         }
     }
@@ -70,15 +74,15 @@ body.skin-dark {
         box-shadow: 0 4px 8px color_lighten(dark, 8%);
     }
     .wizard-steps .wizard-step.wizard-step-active {
-        box-shadow: 0 2px 6px color_lighten(city360, 8%);
-        background-color: color(city360);
+        box-shadow: 0 2px 6px color_lighten(brand, 8%);
+        background-color: color(brand);
     }
     .wizard-steps .wizard-step:before {
         background-color: color(dark);
     }
 
     .wizard-steps .wizard-step.wizard-step-active:before {
-        background-color: color(city360);
+        background-color: color(brand);
     }
 
     &.base {
@@ -93,7 +97,7 @@ body.skin-dark {
         }
 
         .navbar {
-            background-color: color(primary);
+            background-color: transparent;
             box-shadow: none;
             .nav-link.nav-link-user,
             .nav-link {
@@ -112,7 +116,7 @@ body.skin-dark {
 
         .jumbotron {
             background-size: cover;
-            background: color(primary);
+            background: color(primary) url("../../../images/cover-dark.svg") center;
             color: color(white);
             padding: 10rem 2rem;
             width: 99.8%;
@@ -221,14 +225,14 @@ body.skin-dark {
     //Lists
     .list-group-item {
         margin-bottom: 3px;
-        background-color: color(primary);
+        background-color: color_lighten(primary, 2%);
         color: color(white)!important;
     }
     .list-group-item:hover {
-        color: color(city360)!important;
+        background-color: color_lighten(primary, 5%);
     }
     .list-group-item.active {
-        background-color: color(city360)!important;
+        background-color: color(brand)!important;
     }
     .list-group-item.active:hover {
         color: color(whitesmoke)!important;
@@ -258,12 +262,12 @@ body.skin-dark {
             margin: 0 3px;
         }
         .page-link:hover {
-            background-color: color(city360);
-            border-color: color(city360);
+            background-color: color(brand);
+            border-color: color(brand);
         }
         &.active .page-link {
-            background-color: color(city360);
-            border-color: color(city360);
+            background-color: color(brand);
+            border-color: color(brand);
         }
         &.disabled .page-link {
             border-color: transparent;
@@ -290,7 +294,7 @@ body.skin-dark {
     &.sidebar-mini {
         .main-sidebar {
             &:after {
-                background: color(primary) url("../../../images/cover.svg") center;
+                background: color(primary) url("../../../images/cover-dark.svg") center;
             }
 
             .sidebar-menu {
@@ -326,7 +330,7 @@ body.skin-dark {
         }
     }
     .main-sidebar {
-        background-color: color(primary);
+        background: color(primary) url("../../../images/cover-dark.svg") center;
         .sidebar-brand {
             .logo-image{
                 fill:color(white);
@@ -474,10 +478,9 @@ body.skin-dark {
     // cards
     .card {
         @include card_base();
-        box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
-        background-color: #222;
+        background-color: color_lighten(primary, 2%);
         .card-header {
-            border-bottom-color: color_lighten(primary, 30%);
+            border-bottom-color: color_lighten(primary, 10%);
             h4 {
                 + .card-header-action,
                 + .card-header-form {
@@ -500,7 +503,7 @@ body.skin-dark {
         }
 
         &.card-primary {
-            border-top: 2px solid color(city360) !important;
+            border-top: 2px solid color(brand) !important;
         }
         &.card-hero {
             .card-header {
@@ -573,7 +576,7 @@ body.skin-dark {
     .selectgroup-input {
         &:focus + .selectgroup-button,
             &:checked + .selectgroup-button {
-            background-color: color(city360);
+            background-color: color(brand);
         }
     }
     .selectgroup-button {
@@ -587,10 +590,10 @@ body.skin-dark {
     }
     .custom-switch-input {
         &:checked ~ .custom-switch-indicator {
-            background: color(city360);
+            background: color(brand);
         }
         &:focus ~ .custom-switch-indicator {
-            border-color: color(city360);
+            border-color: color(brand);
         }
     }
     .custom-switch-indicator {
@@ -623,12 +626,12 @@ body.skin-dark {
     .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary, 
     .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary {
         color: #fff;
-        background: color(city360);
+        background: color(brand);
     }
     .form-control {
         border: 1px solid color_lighten(primary, 30%);
-        color: color(white);
-        background-color: rgba(255,255,255,0.09);
+        color: color(primary);
+        background-color: color(white);
 
     }
     .input-group > .input-group-prepend > .input-group-text, {
@@ -640,7 +643,7 @@ body.skin-dark {
         background-color: color(primary) !important;
     }
     .progress-bar.bg-primary {
-        background-color: color(city360) !important;
+        background-color: color(brand) !important;
     }
 
     //Modal
@@ -729,13 +732,13 @@ body.skin-dark {
         color: color(white)!important;
     }
     .cke_reset_all:hover, .cke_reset_all *:hover  {
-        color: color(city360)!important;
+        color: color(brand)!important;
     }
     .cke_combo_open {
-        color: color(city360)!important;
+        color: color(brand)!important;
     }
     .cke_combo_label .cke_combo_open:hover {
-        color: color(city360)!important;
+        color: color(brand)!important;
     }
     .cke_button {
         cursor: pointer;
@@ -749,7 +752,7 @@ body.skin-dark {
     .cke_combo_on a.cke_combo_button, .cke_combo_off a.cke_combo_button:hover, .cke_combo_off a.cke_combo_button:focus, .cke_combo_off a.cke_combo_button:active {
         background: color(white)!important;
         border: 1px solid color(white);
-        color: color(city360)!important;
+        color: color(brand)!important;
     }
 
     //Text
@@ -780,6 +783,15 @@ body.skin-dark {
         background: color_lighten(primary, 8%)!important;
     }
     .daterangepicker td.active, .daterangepicker td.active:hover {
-        background-color: color(city360)!important;
+        background-color: color(brand)!important;
+    }
+    .tt-menu {
+        background: color(primary);
+    }
+    .tt-suggestion {
+        color: color(white);
+    }
+    .tt-dataset:hover .card-footer {
+        color: color(primary);
     }
 }

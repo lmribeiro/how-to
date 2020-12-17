@@ -22,7 +22,7 @@ use yii\helpers\Url;
         <div class="sidebar-brand sidebar-brand-sm">
             <h4 style="margin-top: 20px;">
                 <a href="<?= Yii::$app->homeUrl ?>">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="65%" height="65%"
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50%" height="50%"
                          viewBox="5.550000190734863 -70.06999969482422 71.81999969482422 70.06999969482422">
                         <g class="logo-image">
                             <path d="M69.39 -70.07L69.39 -39.03L13.43 -39.03L13.43 -70.07L5.55 -70.07L5.55 0L13.43 0L13.43 -31.05L69.39 -31.05L69.39 0L77.37 0L77.37 -70.07Z"></path>

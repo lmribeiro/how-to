@@ -2178,7 +2178,7 @@ h6 .badge {
 }
 /* 3.19 Dropdown */
 .dropdown-item.has-icon i {
-  margin-top: -1px;
+  margin-top: 2px;
   font-size: 13px;
 }
 
