@@ -165,9 +165,6 @@ body.skin-dark {
             margin-top: 20px;
         }
         .site-footer #scroll-up {
-            position: absolute;
-            top: -14px;
-            right: 20%;
             color: color(white);
             background-color: color(primary);
             display: inline-block;
@@ -186,9 +183,6 @@ body.skin-dark {
             margin: 0;
             padding: 0;
             text-align: right;
-        }
-        p {
-            text-align: left!important;
         }
         .footer-menu li {
             display: inline-block;
@@ -294,7 +288,7 @@ body.skin-dark {
     &.sidebar-mini {
         .main-sidebar {
             &:after {
-                background: color(primary) url("../../../images/cover-dark.svg") center;
+                background: color(primary);
             }
 
             .sidebar-menu {
@@ -330,7 +324,7 @@ body.skin-dark {
         }
     }
     .main-sidebar {
-        background: color(primary) url("../../../images/cover-dark.svg") center;
+        background: color(primary);
         .sidebar-brand {
             .logo-image{
                 fill:color(white);
@@ -630,8 +624,8 @@ body.skin-dark {
     }
     .form-control {
         border: 1px solid color_lighten(primary, 30%);
-        color: color(primary);
-        background-color: color(white);
+        color: color(white);
+        background-color: color_lighten(primary, 10%);
 
     }
     .input-group > .input-group-prepend > .input-group-text, {

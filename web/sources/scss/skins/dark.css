@@ -112,9 +112,6 @@ body.skin-dark.base .site-footer {
   margin-top: 20px;
 }
 body.skin-dark.base .site-footer #scroll-up {
-  position: absolute;
-  top: -14px;
-  right: 20%;
   color: #ffffff;
   background-color: #222222;
   display: inline-block;
@@ -132,9 +129,6 @@ body.skin-dark.base .footer-menu {
   margin: 0;
   padding: 0;
   text-align: right;
-}
-body.skin-dark.base p {
-  text-align: left !important;
 }
 body.skin-dark.base .footer-menu li {
   display: inline-block;
@@ -222,7 +216,7 @@ body.skin-dark .page-link:focus {
   box-shadow: none;
 }
 body.skin-dark.sidebar-mini .main-sidebar:after {
-  background: #222222 url("../../../images/cover-dark.svg") center;
+  background: #222222;
 }
 body.skin-dark.sidebar-mini .main-sidebar .sidebar-menu li.active > a {
   background-color: #fff;
@@ -245,7 +239,7 @@ body.skin-dark.sidebar-mini .main-sidebar .sidebar-menu li ul.dropdown-menu li.a
   color: #222222;
 }
 body.skin-dark .main-sidebar {
-  background: #222222 url("../../../images/cover-dark.svg") center;
+  background: #222222;
 }
 body.skin-dark .main-sidebar .sidebar-brand .logo-image {
   fill: #ffffff;
@@ -502,8 +496,8 @@ body.skin-dark .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-p
 }
 body.skin-dark .form-control {
   border: 1px solid #6f6f6f;
-  color: #222222;
-  background-color: #ffffff;
+  color: #ffffff;
+  background-color: #3c3c3c;
 }
 body.skin-dark .input-group > .input-group-prepend > .input-group-text {
   border: 1px solid #6f6f6f;

@@ -53,7 +53,6 @@
 /* 2. Mixin */
 /* 3. Bootstrap Override */
 /* 3.1 Misc */
-@import url("//fonts.googleapis.com/css?family=Nunito:400,600,700,800");
 .btn:focus,
 .btn:active,
 .btn:active:focus,
@@ -1337,10 +1336,10 @@ table tr:hover .table-links {
 
 .badge {
   vertical-align: middle;
-  padding: 7px 12px;
+  padding: 3px 10px;
   font-weight: 600;
   letter-spacing: 0.3px;
-  border-radius: 30px;
+  border-radius: 4px;
   font-size: 12px;
 }
 .badge.badge-warning {
@@ -2414,7 +2413,7 @@ body {
   background-color: #fafdfb;
   font-size: 14px;
   font-weight: 400;
-  font-family: "Nunito", "Segoe UI", arial;
+  font-family: Helvetica, Arial, sans-serif;
   color: #6c757d;
 }
 
@@ -3797,6 +3796,30 @@ table th:last-child {
 @media (max-width: 575.98px) {
   .section-header-breadcrumb {
     padding-left: 0 !important;
+  }
+
+  .navbar .navbar-brand {
+    width: 200px;
+  }
+
+  .collapse:not(.show) {
+    display: block;
+    position: absolute;
+    right: 3px;
+  }
+
+  .display-3 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+  }
+
+  .login-brand {
+    margin: 35px 0;
+    margin-bottom: 40px;
+    font-size: 19px;
+    letter-spacing: 3px;
+    height: 40px;
   }
 }
 /*

@@ -109,7 +109,7 @@ body.skin-reverse.base .site-footer {
 body.skin-reverse.base .site-footer #scroll-up {
   position: absolute;
   top: -14px;
-  right: 20%;
+  right: 24%;
   color: #34395e;
   background-color: #eeeeee;
   display: inline-block;
@@ -127,9 +127,6 @@ body.skin-reverse.base .footer-menu {
   margin: 0;
   padding: 0;
   text-align: right;
-}
-body.skin-reverse.base p {
-  text-align: left !important;
 }
 body.skin-reverse.base .footer-menu li {
   display: inline-block;

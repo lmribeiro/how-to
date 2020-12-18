@@ -291,6 +291,28 @@ table th:last-child {
   .section-header-breadcrumb {
     padding-left: 0 !important;
   }
+
+  .navbar .navbar-brand {
+    width: 200px;
+  }
+
+  .collapse:not(.show) {
+    display: block;
+    position: absolute;
+    right: 3px;
+  }
+  .display-3 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+  }
+  .login-brand {
+    margin: 35px 0;
+    margin-bottom: 40px;
+    font-size: 19px;
+    letter-spacing: 3px;
+    height: 40px;
+  }
 }
 
 /*
