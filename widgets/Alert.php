@@ -2,74 +2,147 @@
 namespace app\widgets;
 
 use Yii;
+use yii\base\Widget;
 
-/**
- * Alert widget renders a message from session flash. All flash messages are displayed
- * in the sequence they were assigned using setFlash. You can set message as following:
- *
- * ```php
- * Yii::$app->session->setFlash('error', 'This is the message');
- * Yii::$app->session->setFlash('success', 'This is the message');
- * Yii::$app->session->setFlash('info', 'This is the message');
- * ```
- *
- * Multiple messages could be set as follows:
- *
- * ```php
- * Yii::$app->session->setFlash('error', ['Error 1', 'Error 2']);
- * ```
- *
- * @author Kartik Visweswaran <kartikv2@gmail.com>
- * @author Alexander Makarov <sam@rmcreative.ru>
- */
-class Alert extends \yii\bootstrap\Widget
+class MyAlert extends Widget
 {
-    /**
-     * @var array the alert types configuration for the flash messages.
-     * This array is setup as $key => $value, where:
-     * - key: the name of the session flash variable
-     * - value: the bootstrap alert type (i.e. danger, success, info, warning)
-     */
-    public $alertTypes = [
-        'error'   => 'alert-danger',
-        'danger'  => 'alert-danger',
-        'success' => 'alert-success',
-        'info'    => 'alert-info',
-        'warning' => 'alert-warning'
-    ];
-    /**
-     * @var array the options for rendering the close button tag.
-     * Array will be passed to [[\yii\bootstrap\Alert::closeButton]].
-     */
-    public $closeButton = [];
+    public $messageError;
+    public $messageInfo;
+    public $messageSuccess;
+    public $messageWarning;
+    public $position;
 
+    public function init()
+    {
+        parent::init();
 
-    /**
-     * {@inheritdoc}
-     */
+        if (Yii::$app->session->hasFlash('error')) {
+            $this->messageError = Yii::$app->session->getFlash('error');
+        }
+
+        if (Yii::$app->session->hasFlash('info')) {
+            $this->messageInfo = Yii::$app->session->getFlash('info');
+        }
+
+        if (Yii::$app->session->hasFlash('success')) {
+            $this->messageSuccess = Yii::$app->session->getFlash('success');
+        }
+
+        if (Yii::$app->session->hasFlash('warning')) {
+            $this->messageWarning = Yii::$app->session->getFlash('warning');
+        }
+
+        if ($this->position === null) {
+            $this->position = 'toast-top-center';
+        }
+    }
+
     public function run()
     {
-        $session = Yii::$app->session;
-        $flashes = $session->getAllFlashes();
-        $appendClass = isset($this->options['class']) ? ' ' . $this->options['class'] : '';
+        $view = $this->getView();
 
-        foreach ($flashes as $type => $flash) {
-            if (!isset($this->alertTypes[$type])) {
-                continue;
-            }
+        if ($this->messageError) {
+            $view->registerJs(
+                'toastr.options = {
+                "closeButton": false,
+                "debug": false,
+                "newestOnTop": true,
+                "progressBar": true,
+                "positionClass": "' .
+                    $this->position .
+                    '",
+                "preventDuplicates": false,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "10000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            };
+            toastr.error("' .
+                    $this->messageError .
+                    '");'
+            );
+        }
 
-            foreach ((array) $flash as $i => $message) {
-                echo \yii\bootstrap\Alert::widget([
-                    'body' => $message,
-                    'closeButton' => $this->closeButton,
-                    'options' => array_merge($this->options, [
-                        'id' => $this->getId() . '-' . $type . '-' . $i,
-                        'class' => $this->alertTypes[$type] . $appendClass,
-                    ]),
-                ]);
-            }
+        if ($this->messageInfo) {
+            $view->registerJs(
+                'toastr.options = {
+                "closeButton": false,
+                "debug": false,
+                "newestOnTop": true,
+                "progressBar": true,
+                "positionClass": "' .
+                    $this->position .
+                    '",
+                "preventDuplicates": false,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "10000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            };
+            toastr.info("' .
+                    $this->messageInfo .
+                    '");'
+            );
+        }
 
-            $session->removeFlash($type);
+        if ($this->messageSuccess) {
+            $view->registerJs(
+                'toastr.options = {
+                "closeButton": false,
+                "debug": false,
+                "newestOnTop": true,
+                "progressBar": true,
+                "positionClass": "' .
+                    $this->position .
+                    '",
+                "preventDuplicates": false,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "10000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            };
+            toastr.success("' .
+                    $this->messageSuccess .
+                    '");'
+            );
+        }
+
+        if ($this->messageWarning) {
+            $view->registerJs(
+                'toastr.options = {
+                "closeButton": false,
+                "debug": false,
+                "newestOnTop": true,
+                "progressBar": true,
+                "positionClass": "' .
+                    $this->position .
+                    '",
+                "preventDuplicates": false,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "10000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            };
+            toastr.warning("' .
+                    $this->messageWarning .
+                    '");'
+            );
         }
     }
 }
