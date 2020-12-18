@@ -51,25 +51,6 @@ class ArticleTags extends \yii\db\ActiveRecord
 		];
 	}
 
-	public function afterFind()
-	{
-		parent::afterFind();
-
-		if (Yii::$app->language != 'pt') {
-			$lang = Yii::$app->language;
-
-			if ($translate = $this->getArticleTagsLang($lang)->one()) {
-				$this->name = $translate->name;
-			}
-		}
-	}
-
-	public function getArticleTagsLang($lang)
-	{
-		return $this->hasOne(ArticleTagsLang::className(), ['article_tags_id' => 'id'])
-			->onCondition(['language_code' => $lang]);
-	}
-
 	/**
 	 * @return \yii\db\ActiveQuery
 	 */

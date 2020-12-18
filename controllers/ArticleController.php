@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\Article;
+use app\models\ArticleTags;
 use Yii;
 use yii\helpers\Json;
 
@@ -44,6 +45,30 @@ class ArticleController extends KbController
         ]);
     }
 
+    public function actionCreate()
+    {
+        Yii::$app->layout = 'article';
+        $model = new Article();
+        $model->status = "REVIEW";
+        $post = Yii::$app->request->post();
+
+        if ($model->load($post) && $model->save()) {
+            if (isset($post['Article']['articleTags'])) {
+                foreach ($post['Article']['articleTags'] as $key => $value) {
+                    $tags = ArticleTags::findOne($value);
+                    $model->link('articleTags', $tags);
+                }
+            }
+            Yii::$app->getSession()->setFlash('success', Yii::t('app', 'Artigo adicionado com sucesso. Ficará disponivel após revisão.'));
+
+            return $this->redirect(['/']);
+        }
+
+        return $this->render('create', [
+            'model' => $model,
+        ]);
+    }
+
     public function actionSearch()
     {
         $search = Yii::$app->request->get('search');
@@ -80,7 +105,8 @@ class ArticleController extends KbController
         $article->up_votes += 1;
         $article->update();
 
-        echo Json::encode('OK');
+        return Json::encode('OK');
+        exit();
     }
 
     public function actionVoteDown()
@@ -90,7 +116,8 @@ class ArticleController extends KbController
         $article->down_votes += 1;
         $article->update();
 
-        echo Json::encode('OK');
+        return Json::encode('OK');
+        exit();
     }
 
 }

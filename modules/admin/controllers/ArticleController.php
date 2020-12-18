@@ -2,6 +2,8 @@
 
 namespace app\modules\admin\controllers;
 
+use app\models\ArticleTags;
+use app\models\ArticleTagsArticle;
 use Yii;
 use app\models\Article;
 use app\models\ArticleCategory;
@@ -39,12 +41,9 @@ class ArticleController extends BoController
 		$searchModel = new ArticleSearch();
 		$dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-		$article_categories = ArticleCategory::find()->all();
-
 		return $this->render('index', [
 			'searchModel' => $searchModel,
 			'dataProvider' => $dataProvider,
-			'article_categories' => $article_categories
 		]);
 	}
 
@@ -69,16 +68,22 @@ class ArticleController extends BoController
 	public function actionCreate()
 	{
 		$model = new Article();
+        $post = Yii::$app->request->post();
 
-		if ($model->load(Yii::$app->request->post()) && $model->save()) {
-			return $this->redirect(['view', 'id' => $model->id]);
+		if ($model->load($post) && $model->save()) {
+            if (isset($post['Article']['articleTags'])) {
+                foreach ($post['Article']['articleTags'] as $key => $value) {
+                    $tags = ArticleTags::findOne($value);
+                    $model->link('articleTags', $tags);
+                }
+            }
+            Yii::$app->getSession()->setFlash('success', Yii::t('app', 'Criado com sucesso.'));
+
+            return $this->redirect(['view', 'id' => $model->id]);
 		}
-
-		$article_categories = ArticleCategory::find()->all();
 
 		return $this->render('create', [
 			'model' => $model,
-			'article_categories' => $article_categories
 		]);
 	}
 
@@ -91,17 +96,39 @@ class ArticleController extends BoController
 	 */
 	public function actionUpdate($id)
 	{
-		$model = $this->findModel($id);
+        $oldTags = [];
+        $model = $this->findModel($id);
+        $post = Yii::$app->request->post();
 
-		if ($model->load(Yii::$app->request->post()) && $model->save()) {
-			return $this->redirect(['view', 'id' => $model->id]);
-		}
+        foreach ($model->articleTags as $tag) {
+            array_push($oldTags, $tag->id);
+        }
 
-		$article_categories = ArticleCategory::find()->all();
+        if ($model->load($post) && $model->save()) {
+            if (isset($post['Article']['articleTags'])) {
+                foreach ($post['Article']['articleTags'] as $key => $value) {
+                    $a = array_search($value, $oldTags);
+
+                    if ($a === false) {
+                        $tags = ArticleTags::findOne($value);
+                        $model->link('articleTags', $tags);
+                    } else {
+                        unset($oldTags[$a]);
+                    }
+                }
+
+                foreach ($oldTags as $key => $value) {
+                    $articleTags = ArticleTagsArticle::find()->where(['article_id' => $model->id, 'article_tag_id' => $value])->one();
+                    $articleTags->delete();
+                }
+            }
+            Yii::$app->getSession()->setFlash('success', Yii::t('app', 'Editado com sucesso.'));
+            return $this->redirect(['index']);
+        }
 
 		return $this->render('update', [
 			'model' => $model,
-			'article_categories' => $article_categories
+            'tags' => $oldTags,
 		]);
 	}
 
