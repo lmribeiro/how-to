@@ -2,7 +2,7 @@
 
 // ChartJS
 if (window.Chart) {
-    Chart.defaults.global.defaultFontFamily = "'Nunito', 'Segoe UI', 'Arial'";
+    Chart.defaults.global.defaultFontFamily = "'Helvetica', 'Arial'";
     Chart.defaults.global.defaultFontSize = 12;
     Chart.defaults.global.defaultFontStyle = 500;
     Chart.defaults.global.defaultFontColor = "#999";
@@ -10,7 +10,7 @@ if (window.Chart) {
     Chart.defaults.global.tooltips.bodyFontColor = "rgba(255,255,255,.7)";
     Chart.defaults.global.tooltips.titleMarginBottom = 10;
     Chart.defaults.global.tooltips.titleFontSize = 14;
-    Chart.defaults.global.tooltips.titleFontFamily = "'Nunito', 'Segoe UI', 'Arial'";
+    Chart.defaults.global.tooltips.titleFontFamily = "'Helvetica', 'Arial'";
     Chart.defaults.global.tooltips.titleFontColor = '#fff';
     Chart.defaults.global.tooltips.xPadding = 15;
     Chart.defaults.global.tooltips.yPadding = 15;
