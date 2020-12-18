@@ -1,9 +1,13 @@
 <?php
 
+use app\models\Article;
 use yii\widgets\ListView;
 
+/** @var Article[] $articleProvider */
+
 ?>
-<?= ListView::widget([
+<?=
+ListView::widget([
     'dataProvider' => $articleProvider,
     'options' => ['class' => 'list-group'],
     'summary' => '',
