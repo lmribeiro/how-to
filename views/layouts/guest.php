@@ -4,7 +4,7 @@
 
 use yii\helpers\Url;
 use app\assets\LoginAsset;
-use app\widgets\MyAlert;
+use app\widgets\Alert;
 use app\widgets\Modals;
 use yii\web\View;
 
@@ -35,7 +35,7 @@ LoginAsset::register($this);
                                 </svg>
                                 <p class="pt-2">Knowledge Base</p>
                             </div>
-                            <?= MyAlert::widget(); ?>
+                            <?= Alert::widget(); ?>
                             <?= $content; ?>
                         </div>
                     </div>

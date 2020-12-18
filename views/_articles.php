@@ -25,17 +25,19 @@ use yii\helpers\Html;
         </div>
         <div class="card-body">
             <p><?= $article->excerpt() ?></p>
-            <br/>
-            <p><b>TAGS:</b>
-                <?php foreach ($article->articleTags as $tag) : ?>
-                    <?= Html::a($tag->name, ['tag/view', 'id' => $tag->id], ['class' => 'badge badge-light', 'style' => 'margin-top: -4px;']) ?>
-                <?php endforeach; ?>
-            </p>
+            <?php if ($article->articleTags) { ?>
+                <br/>
+                <p><b>TAGS:</b>
+                    <?php foreach ($article->articleTags as $tag) : ?>
+                        <?= Html::a($tag->name, ['tag/view', 'id' => $tag->id], ['class' => 'badge badge-light', 'style' => 'margin-top: -4px;']) ?>
+                    <?php endforeach; ?>
+                </p>
+            <?php } ?>
         </div>
         <div class="card-footer">
             <div class="row">
                 <div class="col-6">
-                    <span><i class="fa fa-grin text-success"></i> <?= $article->up_votes ?></span>
+                    <p><i class="fa fa-grin text-success"></i> <?= $article->up_votes ?></p>
                 </div>
                 <div class="col-6 text-right">
                     <?= Html::a(Yii::t('app', 'Ler mais'), ['article/view', 'id' => $article->id], ['class' => 'btn btn-outline-secondary']) ?>

@@ -1,5 +1,6 @@
 <?php
 
+use app\models\ArticleCategory;
 use kartik\grid\GridView;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -33,7 +34,7 @@ $this->params['modals'][] = 'modal';
                     'value' => function ($model) {
                         return $model->articleCategory->name;
                     },
-                    'filter' => ArrayHelper::map($article_categories, 'id', 'name'),
+                    'filter' => ArrayHelper::map(ArticleCategory::find()->all(), 'id', 'name'),
                     'filterInputOptions' => ['placeholder' => Yii::t('app', 'Todas')],
                     'filterWidgetOptions' => [
                         'pluginOptions' => [

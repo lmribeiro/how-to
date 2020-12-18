@@ -5,6 +5,7 @@ use app\models\ArticleTags;
 use dosamigos\ckeditor\CKEditor;
 use kartik\select2\Select2;
 use yii\helpers\ArrayHelper;
+use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
@@ -18,6 +19,9 @@ use yii\widgets\ActiveForm;
 <div class="card-body">
     <div class="row">
         <div class="col-lg-6">
+            <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+        </div>
+        <div class="col-lg-6">
             <?= $form->field($model, 'article_category_id')->widget(Select2::className(), [
                 'data' => ArrayHelper::map(ArticleCategory::find()->all(), 'id', 'name'),
                 'options' => [
@@ -25,23 +29,8 @@ use yii\widgets\ActiveForm;
                 ],
             ]) ?>
         </div>
-        <div class="col-lg-6">
-            <?= $form->field($model, 'status')->widget(Select2::className(), [
-                'data' => [
-                    'ARCHIVED' => Yii::t('app', 'Arquivado'),
-                    'REVIEW' => Yii::t('app', 'Em Revisão'),
-                    'PENDING' => Yii::t('app', 'Pendente'),
-                    'PUBLISHED' => Yii::t('app', 'Publicado'),
-                    'DRAFT' => Yii::t('app', 'Rascunho'),
-                ],
-                'options' => [
-                    'placeholder' => Yii::t('app', 'Selecione uma opção'),
-                ],
-            ]) ?>
-        </div>
     </div>
 
-    <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'text')->widget(CKEditor::className(), Yii::$app->params['ckeditorSimpleConfig']); ?>
 
     <?=
@@ -56,10 +45,13 @@ use yii\widgets\ActiveForm;
 
     ?>
 </div>
-
-<?php include __DIR__ . '../../_save.php'; ?>
+<div class="card-footer text-right">
+    <div class="form-group">
+        <?= Html::submitButton(Yii::t('app', 'Guardar'), ['class' => 'btn btn-success', 'type' => 'submit']); ?>
+    </div>
+</div>
 <?php ActiveForm::end(); ?>
 
 <?php if (Yii::$app->session->get('theme')) { ?>
-    <?php include __DIR__ . '../../_ckeditor.php'; ?>
+    <?php include __DIR__ . '/_ckeditor.php'; ?>
 <?php } ?>

@@ -17,12 +17,6 @@ $this->beginContent('@app/views/layouts/base.php');
             <div class="col-md-8 offset-md-2 text-white">
                 <?= $this->render('_search') ?>
             </div>
-            <div class="col-md-8 offset-md-2 text-center">
-                <br/>
-                <a href="#" class="mt-5 text-uppercase text-white">
-                    <?= Yii::t('app', 'Ver as FAQs'); ?>
-                </a>
-            </div>
         </div>
     </div>
 </div>

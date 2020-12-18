@@ -5,7 +5,7 @@
 use app\assets\AppAsset;
 use yii\web\View;
 use yii\widgets\Breadcrumbs;
-use app\widgets\MyAlert;
+use app\widgets\Alert;
 use app\widgets\Modals;
 
 AppAsset::register($this);
@@ -21,7 +21,7 @@ AppAsset::register($this);
     <body class="skin-reverse <?= Yii::$app->session->get('theme') ? 'skin-dark' : ''; ?> <?= Yii::$app->session->get('min_sidebar') ? 'sidebar-mini' : ''; ?>">
         <?php $this->beginBody(); ?>
 
-        <?= MyAlert::widget(); ?>
+        <?= Alert::widget(); ?>
 
         <div id="app">
             <div class="main-wrapper main-wrapper-1">
