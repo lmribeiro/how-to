@@ -4,7 +4,8 @@ use app\models\Article;
 
 /** @var $articles Article[] */
 
-$this->title = Yii::t('app', 'Knowledge Base');
+$this->title = Yii::t('app', 'Bem-vindo');
+$this->params['breadcrumbs'][] = $this->title;
 
 ?>
 

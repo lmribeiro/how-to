@@ -3895,4 +3895,9 @@ input[type=number] {
   width: 100%;
 }
 
+.breadcrumb {
+  background-color: transparent;
+  padding: 0.75rem 12px;
+}
+
 /*# sourceMappingURL=style.css.map */
