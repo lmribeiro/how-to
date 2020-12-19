@@ -77,7 +77,7 @@ class FaqController extends BoController
 		$model = new Faq();
 
 		if ($model->load(Yii::$app->request->post()) && $model->save()) {
-			return $this->redirect(['questions']);
+			return $this->redirect(['index']);
 		}
 
 		$faq_categories = FaqCategory::find()->all();
@@ -100,7 +100,7 @@ class FaqController extends BoController
 		$model = $this->findModel($id);
 
 		if ($model->load(Yii::$app->request->post()) && $model->save()) {
-			return $this->redirect(['questions']);
+			return $this->redirect(['index']);
 		}
 
 		$faq_categories = FaqCategory::find()->all();
