@@ -1,6 +1,6 @@
 <?php
 
-$this->title = $model->{"name"};
+$this->title = $model->name;
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>

@@ -17,9 +17,8 @@ class ListCategoriesWidget extends Widget
         parent::init();
 
         $searchModel = new ArticleCategorySearch();
-        $categoryProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $categoryProvider->sort = ['defaultOrder' => ["name" => SORT_ASC]];
-        $this->model = $categoryProvider;
+        $this->model = $searchModel->search(Yii::$app->request->queryParams);
+        $this->model->sort = ['defaultOrder' => ["name" => SORT_ASC]];
     }
 
     public function run()

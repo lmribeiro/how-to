@@ -39,7 +39,7 @@ class CategoryController extends KbController
     public function actionView($id): string
     {
         $model = ArticleCategory::findOne($id);
-        $articles = Article::find()->where("article_category_id = $model->id AND status = 'PUBLISHED'")->limit(10)->all();
+        $articles = Article::find()->where(['article_category_id' => $model->id, 'status' => 'PUBLISHED'])->limit(10)->all();
 
         return $this->render('view', [
                     'model' => $model,
