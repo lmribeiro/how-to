@@ -74,6 +74,7 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 '<alias:index>' => 'site/<alias>',
+                'article/<id:\d+>/<slug>' => 'article/view',
             ],
         ],
         'assetManager' => [

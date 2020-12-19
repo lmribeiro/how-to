@@ -71,7 +71,7 @@ class ArticleController extends BoController
         $post = Yii::$app->request->post();
 
 		if ($model->load($post) && $model->save()) {
-            if (isset($post['Article']['articleTags'])) {
+            if (isset($post['Article']['articleTags']) && is_array($post['Article']['articleTags'])) {
                 foreach ($post['Article']['articleTags'] as $key => $value) {
                     $tags = ArticleTags::findOne($value);
                     $model->link('articleTags', $tags);
@@ -97,7 +97,7 @@ class ArticleController extends BoController
 	public function actionUpdate($id)
 	{
         $oldTags = [];
-        $model = $this->findModel($id);
+        $model = $this->findModel(str_replace('-', ' ', $id));
         $post = Yii::$app->request->post();
 
         foreach ($model->articleTags as $tag) {
@@ -105,7 +105,7 @@ class ArticleController extends BoController
         }
 
         if ($model->load($post) && $model->save()) {
-            if (isset($post['Article']['articleTags'])) {
+            if (isset($post['Article']['articleTags']) && is_array($post['Article']['articleTags'])) {
                 foreach ($post['Article']['articleTags'] as $key => $value) {
                     $a = array_search($value, $oldTags);
 

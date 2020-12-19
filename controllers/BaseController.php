@@ -2,9 +2,9 @@
 
 namespace app\controllers;
 
+use app\components\Nav;
 use Yii;
 use yii\web\Controller;
-use app\models\Language;
 
 class BaseController extends Controller
 {
@@ -13,6 +13,8 @@ class BaseController extends Controller
 
     public function init()
     {
+        $this->top_nav = Nav::getTopNav();
+
         parent::init();
     }
 

@@ -13,7 +13,7 @@ use yii\helpers\Html;
             <div class="row">
                 <div class="col-12">
                     <h5 class="mb-1">
-                        <?= Html::a($article->title, ['article/view', 'id' => $article->id], ['class' => '']) ?>
+                        <?= Html::a($article->title, ['article/view', 'id' => $article->id, 'slug' => $article->getSlug()], ['class' => '']) ?>
                     </h5>
                 </div>
                 <div class="col-12">
@@ -40,7 +40,7 @@ use yii\helpers\Html;
                     <p><i class="fa fa-grin text-success"></i> <?= $article->up_votes ?></p>
                 </div>
                 <div class="col-6 text-right">
-                    <?= Html::a(Yii::t('app', 'Ler mais'), ['article/view', 'id' => $article->id], ['class' => 'btn btn-outline-secondary']) ?>
+                    <?= Html::a(Yii::t('app', 'Ler mais'), ['article/view', 'id' => $article->id, 'slug' => $article->getSlug()], ['class' => 'btn btn-outline-secondary']) ?>
                 </div>
             </div>
         </div>

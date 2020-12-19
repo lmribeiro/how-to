@@ -24,72 +24,72 @@ use Yii;
  */
 class Article extends \yii\db\ActiveRecord
 {
-	/**
-	 * {@inheritdoc}
-	 */
-	public static function tableName()
-	{
-		return 'article';
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public static function tableName()
+    {
+        return 'article';
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function rules()
-	{
-		return [
-			[['article_category_id', 'title', 'text'], 'required'],
-			[['article_category_id', 'views', 'up_votes', 'down_votes'], 'integer'],
-			[['text', 'status'], 'string'],
-			[['created_at', 'updated_at'], 'safe'],
-			[['title'], 'string', 'max' => 255],
-			[['article_category_id'], 'exist', 'skipOnError' => true, 'targetClass' => ArticleCategory::className(), 'targetAttribute' => ['article_category_id' => 'id']],
-		];
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function rules()
+    {
+        return [
+            [['article_category_id', 'title', 'text'], 'required'],
+            [['article_category_id', 'views', 'up_votes', 'down_votes'], 'integer'],
+            [['text', 'status'], 'string'],
+            [['created_at', 'updated_at'], 'safe'],
+            [['title'], 'string', 'max' => 255],
+            [['article_category_id'], 'exist', 'skipOnError' => true, 'targetClass' => ArticleCategory::className(), 'targetAttribute' => ['article_category_id' => 'id']],
+        ];
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function attributeLabels()
-	{
-		return [
-			'id' => Yii::t('app', 'ID'),
-			'article_category_id' => Yii::t('app', 'Categoria'),
-			'title' => Yii::t('app', 'Titulo'),
-			'text' => Yii::t('app', 'Texto'),
-			'status' => Yii::t('app', 'Estado'),
-			'views' => Yii::t('app', 'Visualizações'),
-			'up_votes' => Yii::t('app', 'Votos positivos'),
-			'down_votes' => Yii::t('app', 'Votos negativos'),
-			'created_at' => Yii::t('app', 'Adicionado'),
-			'updated_at' => Yii::t('app', 'Editado'),
-		];
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => Yii::t('app', 'ID'),
+            'article_category_id' => Yii::t('app', 'Categoria'),
+            'title' => Yii::t('app', 'Titulo'),
+            'text' => Yii::t('app', 'Texto'),
+            'status' => Yii::t('app', 'Estado'),
+            'views' => Yii::t('app', 'Visualizações'),
+            'up_votes' => Yii::t('app', 'Votos positivos'),
+            'down_votes' => Yii::t('app', 'Votos negativos'),
+            'created_at' => Yii::t('app', 'Adicionado'),
+            'updated_at' => Yii::t('app', 'Editado'),
+        ];
+    }
 
 
-	/**
-	 * @return \yii\db\ActiveQuery
-	 */
-	public function getArticleCategory()
-	{
-		return $this->hasOne(ArticleCategory::className(), ['id' => 'article_category_id']);
-	}
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getArticleCategory()
+    {
+        return $this->hasOne(ArticleCategory::className(), ['id' => 'article_category_id']);
+    }
 
-	/**
-	 * @return \yii\db\ActiveQuery
-	 */
-	public function getArticleTagsArticles()
-	{
-		return $this->hasMany(ArticleTagsArticle::className(), ['article_id' => 'id']);
-	}
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getArticleTagsArticles()
+    {
+        return $this->hasMany(ArticleTagsArticle::className(), ['article_id' => 'id']);
+    }
 
-	/**
-	 * @return \yii\db\ActiveQuery
-	 */
-	public function getArticleTags()
-	{
-		return $this->hasMany(ArticleTags::className(), ['id' => 'article_tag_id'])->viaTable('article_tags_article', ['article_id' => 'id']);
-	}
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getArticleTags()
+    {
+        return $this->hasMany(ArticleTags::className(), ['id' => 'article_tag_id'])->viaTable('article_tags_article', ['article_id' => 'id']);
+    }
 
     public function relatedArticles()
     {
@@ -112,9 +112,9 @@ class Article extends \yii\db\ActiveRecord
         return $articles;
     }
 
-    public function excerpt($max_length = 250, $cut_off = '...', $keep_word = false)
+    public function excerpt($field = 'text', $max_length = 250, $cut_off = '...', $keep_word = false)
     {
-        $text = strip_tags($this->text, '<br><br/>');;
+        $text = strip_tags($this->$field, '<br><br/>');;
 
         if (strlen($text) <= $max_length) {
             return $text;
@@ -127,15 +127,27 @@ class Article extends \yii\db\ActiveRecord
                 if ($last_space = strrpos($text, ' ')) {
                     $text = substr($text, 0, $last_space);
                     $text = rtrim($text);
-                    $text .=  $cut_off;
+                    $text .= $cut_off;
                 }
             } else {
                 $text = substr($text, 0, $max_length);
                 $text = rtrim($text);
-                $text .=  $cut_off;
+                $text .= $cut_off;
             }
         }
 
         return $text;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSlug(): string
+    {
+        return strtolower(strtr(
+                utf8_decode(preg_replace('/[.!?;*#£€%&]/', '', str_replace(' ', '-', $this->title))),
+                utf8_decode('àáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ'),
+                'aaaaaceeeeiiiinooooouuuuyyAAAAACEEEEIIIINOOOOOUUUUY')
+        );
     }
 }

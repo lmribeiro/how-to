@@ -61,7 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="list-group">
                         <?php foreach ($model->relatedArticles() as $related) : ?>
                             <a class="list-group-item list-group-item-action list-group-item d-flex justify-content-between align-items-center text-dark"
-                               href="<?= Url::to(['article/view', 'id' => $related->article->id]) ?>"
+                               href="<?= Url::to(['article/view', 'id' => $related->article->id, 'slug' => $related->article->getSlug()]) ?>"
                                style="border: 0; border-radius: 4px;">
                                 <?= $related->article->title ?>
                                 <span><?= $related->article->up_votes ?> <i class="fa fa-grin text-success"></i></span>

@@ -15,9 +15,8 @@ class ListPopularWidget extends Widget
         parent::init();
 
         $searchModel = new ArticleSearch();
-        $articleProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $articleProvider->sort = ['defaultOrder' => ['views' => SORT_DESC]];
-        $this->model = $articleProvider;
+        $this->model = $searchModel->search(Yii::$app->request->queryParams);
+        $this->model->sort = ['defaultOrder' => ['views' => SORT_DESC]];
     }
 
     public function run()

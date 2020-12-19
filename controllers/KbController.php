@@ -2,7 +2,6 @@
 
 namespace app\controllers;
 
-use app\components\Nav;
 use Yii;
 
 class KbController extends BaseController
@@ -25,7 +24,6 @@ class KbController extends BaseController
 
     public function init()
     {
-        $this->top_nav = Nav::getTopNav();
         parent::init();
     }
 

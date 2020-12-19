@@ -120,4 +120,12 @@ class ArticleController extends KbController
         exit();
     }
 
+    public function loadModelSlug($slug)
+    {
+        $model = Article::find()->where(['title' => $slug])->one();
+        if($model===null)
+            return false;
+        return $model;
+    }
+
 }
