@@ -12,7 +12,7 @@ use yii\widgets\ActiveForm;
         <?php
         $form = ActiveForm::begin([
                     'id' => 'form-question',
-                    'action' => '/faq/send-question'
+                    'action' => '/faqs/send-question'
         ]);
 
         ?>
@@ -60,8 +60,6 @@ use yii\widgets\ActiveForm;
 
     </div>
 </div>
-
-
 
 <script>
     $('#form-question').submit(function (e) {

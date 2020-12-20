@@ -1,22 +1,27 @@
 <?php
 
+use app\models\Faq;
+use app\models\FaqCategory;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\FaqSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
+/* @var $categories  FaqCategory[] */
+/* @var $faqs Faq[] */
 
 $this->title = Yii::t('app', 'Perguntas Frequentes');
 
 ?>
 <br/>
-<!-- Main jumbotron for a primary marketing message or call to action -->
+<?php  if (!Yii::$app->user->isGuest) {?>
 <div class="jumbotron">
     <div class="container">
         <h1 class="display-3 text-center text-white"><?= $this->title ?></h1>
     </div>
 </div>
-
+<?php } ?>
 <div class="container">
     <div class="row">
 
@@ -28,7 +33,7 @@ $this->title = Yii::t('app', 'Perguntas Frequentes');
                 <div class="card-body">
                     <div class="list-group flex-column">
                         <?php foreach ($categories as $key => $category) { ?>
-                                <?= Html::a($category->name, '#', ['class' => $key == 0 ? 'list-group-item list-group-item-action list-group-item d-flex justify-content-between align-items-center active' : 'list-group-item list-group-item-action list-group-item d-flex justify-content-between align-items-center', 'style' => 'border: 0; border-radius: 4px;', 'data-id' => $category->id]); ?>
+                            <?= Html::a($category->name, '#', ['class' => $key == 0 ? 'list-group-item list-group-item-action list-group-item d-flex justify-content-between align-items-center active' : 'list-group-item list-group-item-action list-group-item d-flex justify-content-between align-items-center', 'style' => 'border: 0; border-radius: 4px;', 'data-id' => $category->id]); ?>
                         <?php } ?>
                     </div>
                 </div>
@@ -49,11 +54,14 @@ $this->title = Yii::t('app', 'Perguntas Frequentes');
                 <?php foreach ($faqs as $k => $faq) { ?>
                     <div class="card" style="margin-bottom:0px">
                         <div class="card-header" id="question-<?= $faq->id; ?>">
-                            <button class="btn btn-link" style="padding-left:0px;padding-right:0px" type="button" data-toggle="collapse" data-target="#collapse-<?= $faq->id; ?>" aria-expanded="true" aria-controls="collapse-<?= $faq->id; ?>">
+                            <button class="btn btn-link" style="padding-left:0px;padding-right:0px" type="button"
+                                    data-toggle="collapse" data-target="#collapse-<?= $faq->id; ?>" aria-expanded="true"
+                                    aria-controls="collapse-<?= $faq->id; ?>">
                                 <h4 class="text-primary text-left"><?= $faq->question ?></h4>
                             </button>
                         </div>
-                        <div id="collapse-<?= $faq->id; ?>" class="collapse <?= $k == 0 ? 'show' : '' ?>" aria-labelledby="question-<?= $faq->id; ?>" data-parent="#faqs-div">
+                        <div id="collapse-<?= $faq->id; ?>" class="collapse <?= $k == 0 ? 'show' : '' ?>"
+                             aria-labelledby="question-<?= $faq->id; ?>" data-parent="#faqs-div">
                             <div class="card-body">
                                 <?= $faq->answer ?>
                             </div>
@@ -65,52 +73,39 @@ $this->title = Yii::t('app', 'Perguntas Frequentes');
     </div>
 </div>
 
-<?php include __DIR__.'/_question_modal.php'; ?>
+<?php include __DIR__ . '/_question_modal.php'; ?>
 
 <script>
     $('.list-group-item').on('click', function () {
-        id = $(this).data('id');
+        const id = $(this).data('id');
         $("a").removeClass("active");
         $(this).addClass("active");
         $.ajax({
             type: "GET",
-            url: "<?= yii\helpers\Url::to(['faqs/get-faqs']) ?>?category=" + id,
+            url: "<?= Url::to(['faqs/get-faqs']) ?>?category=" + id,
             async: true,
             success: function (response) {
-                lang = '<?= Yii::$app->language; ?>';
                 $('#faqs-div').html("");
-                data = JSON.parse(response);
+                const data = JSON.parse(response);
 
                 if (data.length > 0) {
-                    for (i = 0; i < data.length; ++i) {
-                        if (lang === 'pt') {
-                            $('#faqs-div').append("<div class=\"card\" style=\"margin-bottom:0px\">" +
-                                    "<div class=\"card-header\" id=\"question-" + data[i].id + "\">" +
-                                    "<button class=\"btn btn-link\" style=\"padding-left:0px;padding-right:0px\" type=\"button\" data-toggle=\"collapse\"" +
-                                    "data-target=\"#collapse-" + data[i].id + "\" aria-expanded=\"true\" aria-controls=\"collapse-" + data[i].id + "\">" +
-                                    "<h4 class=\"text-primary text-left\">" + data[i].question_pt + "</h4>" +
-                                    "</button></div>" +
-                                    " <div id=\"collapse-" + data[i].id + "\" class=\"collapse " + (i === 0 ? 'show' : '') + "\" aria-labelledby=\"question-" + data[i].id + "\" data-parent=\"#faqs-div\">" +
-                                    "<div class=\"card-body\">" +
-                                    "" + data[i].answer_pt + "</div></div></div>");
-                        } else {
-                            $('#faqs-div').append("<div class=\"card\" style=\"margin-bottom:0px\">" +
-                                    "<div class=\"card-header\" id=\"question-" + data[i].id + "\">" +
-                                    "<button class=\"btn btn-link\" style=\"padding-left:0px;padding-right:0px\" type=\"button\" data-toggle=\"collapse\"" +
-                                    "data-target=\"#collapse-" + data[i].id + "\" aria-expanded=\"true\" aria-controls=\"collapse-" + data[i].id + "\">" +
-                                    "<h4 class=\"text-primary text-left\">" + data[i].question_en + "</h4>" +
-                                    "</button></div>" +
-                                    " <div id=\"collapse-" + data[i].id + "\" class=\"collapse " + (i === 0 ? 'show' : '') + "\" aria-labelledby=\"question-" + data[i].id + "\" data-parent=\"#faqs-div\">" +
-                                    "<div class=\"card-body\">" +
-                                    "" + data[i].answer_en + "</div></div></div>");
-                        }
+                    for (let i = 0; i < data.length; ++i) {
+                        $('#faqs-div').append("<div class=\"card\" style=\"margin-bottom:0px\">" +
+                            "<div class=\"card-header\" id=\"question-" + data[i].id + "\">" +
+                            "<button class=\"btn btn-link\" style=\"padding-left:0px;padding-right:0px\" type=\"button\" data-toggle=\"collapse\"" +
+                            "data-target=\"#collapse-" + data[i].id + "\" aria-expanded=\"true\" aria-controls=\"collapse-" + data[i].id + "\">" +
+                            "<h4 class=\"text-primary text-left\">" + data[i].question + "</h4>" +
+                            "</button></div>" +
+                            " <div id=\"collapse-" + data[i].id + "\" class=\"collapse " + (i === 0 ? 'show' : '') + "\" aria-labelledby=\"question-" + data[i].id + "\" data-parent=\"#faqs-div\">" +
+                            "<div class=\"card-body\">" +
+                            "" + data[i].answer + "</div></div></div>");
                     }
                 } else {
                     $('#faqs-div').append("<div class=\"card\" style=\"margin-bottom:0px\">" +
-                                    "<div class=\"card-header\"><h4 class=\"text-primary text-left\"><?= Yii::t('app', 'Sem perguntas.') ?></h4></div>" +
-                                    "<div>" +
-                                    "<div class=\"card-body\">" +
-                                    "<p><?= Yii::t('app', 'Não há perguntas frequentes para esta categoria.') ?></p></div></div>");
+                        "<div class=\"card-header\"><h4 class=\"text-primary text-left\"><?= Yii::t('app', 'Sem perguntas.') ?></h4></div>" +
+                        "<div>" +
+                        "<div class=\"card-body\">" +
+                        "<p><?= Yii::t('app', 'Não há perguntas frequentes para esta categoria.') ?></p></div></div>");
                 }
             },
             error: function (data) {

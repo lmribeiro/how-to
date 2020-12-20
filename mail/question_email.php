@@ -2,6 +2,8 @@
 
 /* @var $this yii\web\View */
 /* @var $admin app\models\Admin */
+/* @var $email String */
+/* @var $question String */
 
 ?>
 <p><b><?= Yii::t('app', 'Questão') ?>!</b></p>
@@ -17,4 +19,4 @@
 <br/>
 
 <?= Yii::t('app', 'Obrigado') ?>,<br/>
-<?= Yii::$app->name ?>.
+<?= Yii::$app->name ?>

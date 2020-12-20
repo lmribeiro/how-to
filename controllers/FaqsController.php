@@ -14,7 +14,6 @@ class FaqsController extends BaseController
 {
     public $top_nav = null;
     public $layout = '/base';
-    public $homeUrl = "faqs";
 
     /**
      * Lists all Faq models.
@@ -26,6 +25,10 @@ class FaqsController extends BaseController
         $faqs = Faq::find()
             ->where(['faq_category_id' => $categories[0]->id])
             ->all();
+
+        if (Yii::$app->user->isGuest) {
+            $this->layout = 'guest';
+        }
 
         return $this->render('index', [
             'categories' => $categories,
@@ -40,15 +43,14 @@ class FaqsController extends BaseController
             ->all();
 
         return Json::encode($faqs);
-        exit();
+        Yii::$app->end();
     }
 
     public function actionSendQuestion()
     {
         $post = Yii::$app->request->post();
 
-        \Yii::$app->mailer->htmlLayout = "layouts/bo";
-        $email = \Yii::$app->mailer
+        Yii::$app->mailer
             ->compose('question_email', [
                 'email' => $post['email'],
                 'question' => $post['question']
@@ -57,7 +59,7 @@ class FaqsController extends BaseController
             ->setFrom([
                 \Yii::$app->params['adminEmail'] => \Yii::$app->name,
             ])
-            ->setSubject(Yii::$app->name . " | " . Yii::t('app', 'Questão'))
+            ->setSubject(Yii::$app->name)
             ->send();
 
         Yii::$app->getSession()->setFlash('success', Yii::t('app', 'Enviada com sucesso.'));
