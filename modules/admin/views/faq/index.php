@@ -7,6 +7,8 @@ use yii\helpers\ArrayHelper;
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\faqSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
+/* @var $faqCategories app\models\FaqCategory[] */
+
 
 $this->title = Yii::t('app', 'Questões');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'FAQs'), 'url' => ['faqs']];
@@ -32,7 +34,7 @@ $this->params['modals'][] = 'modal';
 					'value' => function ($model) {
 						return $model->faqCategory->name;
 					},
-					'filter' => ArrayHelper::map($faq_categories, 'id', 'name'),
+					'filter' => ArrayHelper::map($faqCategories, 'id', 'name'),
 					'filterInputOptions' => ['placeholder' => Yii::t('app', 'Todas')],
 					'filterWidgetOptions' => [
 						'pluginOptions' => [

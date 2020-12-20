@@ -67,6 +67,7 @@ class FaqCategoryController extends BoController
         $model = new FaqCategory();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->getSession()->setFlash('success', Yii::t('app', 'Criada com sucesso'));
             return $this->redirect(['index']);
         }
 
@@ -87,6 +88,7 @@ class FaqCategoryController extends BoController
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->getSession()->setFlash('success', Yii::t('app', 'Editada com sucesso'));
             return $this->redirect(['index']);
         }
 
@@ -104,8 +106,15 @@ class FaqCategoryController extends BoController
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $model = $this->findModel($id);
 
+        foreach ($model->faqs as $faq) {
+            $faq->delete();
+        }
+
+        $model->delete();
+
+        Yii::$app->getSession()->setFlash('success', Yii::t('app', 'Apagada com sucesso'));
         return $this->redirect(['index']);
     }
 

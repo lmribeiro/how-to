@@ -36,7 +36,7 @@ class BoController extends BaseController
     {
         if (isset($_GET['lg'])) {
             Yii::$app->language = trim(strip_tags($_GET['lg']));
-            Yii::$app->session['_lang'] = Yii::$app->language;
+//            Yii::$app->session['_lang'] = Yii::$app->language;
         } else {
             Yii::$app->language = isset(Yii::$app->session['_lang']) ? Yii::$app->session['_lang'] : 'pt';
         }

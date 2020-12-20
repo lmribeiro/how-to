@@ -45,12 +45,10 @@ class FaqController extends BoController
 		$searchModel = new FaqSearch();
 		$dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-		$faq_categories = FaqCategory::find()->all();
-
 		return $this->render('index', [
 			'searchModel' => $searchModel,
 			'dataProvider' => $dataProvider,
-			'faq_categories' => $faq_categories
+			'faqCategories' => FaqCategory::find()->all()
 		]);
 	}
 
@@ -77,14 +75,13 @@ class FaqController extends BoController
 		$model = new Faq();
 
 		if ($model->load(Yii::$app->request->post()) && $model->save()) {
-			return $this->redirect(['index']);
+            Yii::$app->getSession()->setFlash('success', Yii::t('app', 'Criada com sucesso'));
+            return $this->redirect(['index']);
 		}
-
-		$faq_categories = FaqCategory::find()->all();
 
 		return $this->render('create', [
 			'model' => $model,
-			'faq_categories' => $faq_categories
+			'faqCategories' => FaqCategory::find()->all()
 		]);
 	}
 
@@ -100,14 +97,13 @@ class FaqController extends BoController
 		$model = $this->findModel($id);
 
 		if ($model->load(Yii::$app->request->post()) && $model->save()) {
-			return $this->redirect(['index']);
+            Yii::$app->getSession()->setFlash('success', Yii::t('app', 'Editada com sucesso'));
+            return $this->redirect(['index']);
 		}
-
-		$faq_categories = FaqCategory::find()->all();
 
 		return $this->render('update', [
 			'model' => $model,
-			'faq_categories' => $faq_categories
+			'faqCategories' => FaqCategory::find()->all()
 		]);
 	}
 
@@ -121,7 +117,7 @@ class FaqController extends BoController
 	public function actionDelete($id)
 	{
 		$this->findModel($id)->delete();
-
+        Yii::$app->getSession()->setFlash('success', Yii::t('app', 'Apagada com sucesso'));
 		return $this->redirect(['index']);
 	}
 
