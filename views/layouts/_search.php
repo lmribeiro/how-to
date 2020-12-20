@@ -7,7 +7,7 @@ use yii\web\JsExpression;
 $template = '<div class="card" style="cursor: pointer;"><div class="card-header" style="min-height: 25px;padding: 5px 0;"><div class="row">'
         .'<div class="col-12"><h5 class="mb-1">{{title}}</h5></div></div></div>'
         .'<div class="card-body text-justify" style="padding: 10px 0;white-space: normal !important; line-height: 16px !important;">'
-        .'<div class="row"><div class="col-12">{{excerpt}}</div></div></div>'
+        .'<div class="row"><div class="col-12">{{{excerpt}}}</div></div></div>'
         .'<div class="card-footer" style="padding: 10px 0;"><div class="row">'
         .'<div class="col-6">'
         .'<small class=""><b>'.Yii::t('app', 'Data').':</b> {{date}}</small> | '
@@ -24,7 +24,7 @@ Typeahead::widget([
     'options' => ['placeholder' => Yii::t('app', 'Procure nesta Knowledge Base...'), 'autocomplete' => 'off', 'class' => 'form-control form-control-lg text-center'],
     'pluginOptions' => ['highlight' => true],
     'pluginEvents' => [
-        "typeahead:select" => "function(event, ui) { openQuestion(ui.id); }",
+        "typeahead:select" => "function(event, ui) { openQuestion(ui.id, ui.slug); }",
     ],
     'scrollable' => true,
     'dataset' => [
@@ -47,17 +47,17 @@ Typeahead::widget([
 
 <?php
 
-$base = Url::to(['@web/article/view?id='], true);
+$base = Url::to(['/article/'], true);
 
 $script = <<< JS
-function openQuestion(id) {
-    location.href = "$base"+ id;
+function openQuestion(id, slug) {
+    location.href = "$base"+ "/" + id + "/" + slug;
 }
 JS;
 $this->registerJs($script);
 $style = <<< CSS
 .tt-scrollable-menu .tt-menu {
-    max-height: 250px;
+    max-height: 350px;
 }
 CSS;
 $this->registerCss($style);

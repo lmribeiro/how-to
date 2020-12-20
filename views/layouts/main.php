@@ -56,18 +56,18 @@ $this->beginContent('@app/views/layouts/base.php');
                 </div>
             </section>
             <section class="section">
-                <h4 class="section-title"><?= Yii::t('app', 'Mais vistos') ?></h4>
-                <div class="card">
-                    <div class="">
-                        <?= ListPopularWidget::widget() ?>
-                    </div>
-                </div>
-            </section>
-            <section class="section">
                 <h4 class="section-title"><?= Yii::t('app', 'Tags') ?></h4>
                 <div class="card">
                     <div class="card-body">
                         <?= ListTagsWidget::widget() ?>
+                    </div>
+                </div>
+            </section>
+            <section class="section">
+                <h4 class="section-title"><?= Yii::t('app', 'Mais vistos') ?></h4>
+                <div class="card">
+                    <div class="">
+                        <?= ListPopularWidget::widget() ?>
                     </div>
                 </div>
             </section>

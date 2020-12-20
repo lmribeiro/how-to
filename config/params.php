@@ -7,7 +7,6 @@ return [
 	'adminEmail' => 'omenu@omenu.online',
 	'user.passwordResetTokenExpire' => 3600,
 	'bsVersion' => '4.x', // this will set globally `bsVersion` to Bootstrap 4.x for all Krajee Extensions
-	'mapsApiKey' => 'AIzaSyBYI3g-sKwbjkjSofdiyzWkq9pu_3IwmoY',
 	'actions' => function ($attributes) {
 		$col = Yii::$app->params['actionCol'];
 		foreach ($attributes as $key => $value) {
@@ -45,15 +44,6 @@ return [
 				['name' => 'links', 'groups' => ['links', 'insert']],
 			],
 		],
-	],
-	'thumbs' => [
-		'thumb' => ['width' => 375, 'height' => 250],
-		'preview' => ['width' => 150, 'height' => 50],
-		'cover' => ['width' => 700, 'height' => 500],
-		'smallcover' => ['width' => 375, 'height' => 250],
-		'logo' => ['width' => 50, 'height' => 50],
-		'navicon' => ['width' => 25, 'height' => 25],
-		'profile' => ['width' => 150, 'height' => 150],
 	],
 	'languages' => ['English' => 'en', 'Português' => 'pt'],
 	'subHeader' => '',

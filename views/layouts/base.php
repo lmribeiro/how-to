@@ -113,10 +113,17 @@ AppAsset::register($this);
 
         <div class="row">
             <div class="col-md-6 col-sm-12">
-                <a href="<?= Url::to(['/faqs/index']) ?>" >
-                    <i class="fas fa-question-circle"></i>
-                    <?= Yii::t('app', 'Perguntas Frequentes'); ?>
+                <?php if (Yii::$app->controller->id == 'faqs') { ?>
+                <a href="<?= Url::to(['/']) ?>" >
+                    <i class="fas fa-graduation-cap"></i>
+                    <?= Yii::t('app', 'Knowledge Base'); ?>
                 </a>
+                <?php } else { ?>
+                    <a href="<?= Url::to(['/faqs/index']) ?>" >
+                        <i class="fas fa-question-circle"></i>
+                        <?= Yii::t('app', 'Perguntas Frequentes'); ?>
+                    </a>
+                <?php } ?>
             </div>
             <div class="col-md-6 col-sm-12 text-right">
                 <p>© 2020 <?= Yii::$app->name ?></p>
