@@ -86,6 +86,7 @@ class ArticleController extends KbController
                 'id' => $article->id,
                 'value' => $article->title,
                 'title' => $article->title,
+                'slug' => $article->getSlug(),
                 'excerpt' => $article->excerpt(),
                 'date' => Yii::$app->formatter->asDate($article->created_at, 'd-MM-Y'),
                 'category' => $article->articleCategory->name,
@@ -98,7 +99,7 @@ class ArticleController extends KbController
         exit();
     }
 
-    public function actionVoteUp()
+    public function actionVoteUp(): string
     {
         $id = Yii::$app->request->post('id');
         $article = Article::findOne($id);
@@ -106,10 +107,10 @@ class ArticleController extends KbController
         $article->update();
 
         return Json::encode('OK');
-        exit();
+        Yii::$app->end();
     }
 
-    public function actionVoteDown()
+    public function actionVoteDown(): string
     {
         $id = Yii::$app->request->post('id');
         $article = Article::findOne($id);
@@ -117,15 +118,6 @@ class ArticleController extends KbController
         $article->update();
 
         return Json::encode('OK');
-        exit();
+        Yii::$app->end();
     }
-
-    public function loadModelSlug($slug)
-    {
-        $model = Article::find()->where(['title' => $slug])->one();
-        if($model===null)
-            return false;
-        return $model;
-    }
-
 }

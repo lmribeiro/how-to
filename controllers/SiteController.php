@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\Article;
 use Yii;
+use yii\data\Pagination;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Response;
@@ -16,12 +17,12 @@ class SiteController extends KbController
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['index'],
+                'only' => [''],
                 'rules' => [
                     [
                         'actions' => ['index'],
                         'allow' => true,
-                        'roles' => ['@'],
+                        'roles' => ['*'],
                     ],
                 ],
             ],
@@ -35,17 +36,24 @@ class SiteController extends KbController
     public function actionIndex()
     {
         if (Yii::$app->user->isGuest) {
-            return $this->redirect(['/auth/login']);
+            $this->layout = 'guest';
+            return $this->render('index', []);
         }
 
-        $articles = Article::find()
+        $query  = Article::find()
             ->where(['status' => 'PUBLISHED'])
-            ->orderBy(['created_at' => SORT_DESC])
-            ->limit(10)
+            ->orderBy(['created_at' => SORT_DESC]);
+
+        $countQuery = clone $query;
+        $pages = new Pagination(['totalCount' => $countQuery->count()]);
+        $pages->setPageSize(10);
+        $articles = $query->offset($pages->offset)
+            ->limit($pages->limit)
             ->all();
 
-        return $this->render('index', [
+        return $this->render('articles', [
             'articles' => $articles,
+            'pages' => $pages,
         ]);
     }
 
