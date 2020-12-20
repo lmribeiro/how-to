@@ -33,7 +33,7 @@ use yii\helpers\Url;
         </div>
 
         <ul class="sidebar-menu">
-            <?php foreach (Yii::$app->controller->side_nav as $n) { ?>
+            <?php foreach (Yii::$app->controller->sideNav as $n) { ?>
                 <li class="menu-header"><?= $n['name']; ?></li>
                 <?php foreach ($n['items'] as $item) { ?>
                     <?php if (!$item['hasItems']) { ?>
@@ -52,9 +52,7 @@ use yii\helpers\Url;
                                 <span><?= $item['name']; ?></span>
                             </a>
                             <ul class="dropdown-menu" style="display: block;">
-                                <?php foreach ($item['items'] as $i) {
-
-                                    ?>
+                                <?php foreach ($item['items'] as $i) { ?>
                                     <a href="<?= Url::to($i['id'] . '/index'); ?>"
                                        class="nav-link <?= in_array(Yii::$app->controller->id, $i['active']) ? 'active' : ''; ?>">
                                         <span><?= $i['name']; ?></span>

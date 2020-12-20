@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\Article;
 use app\models\ArticleCategory;
+use yii\data\Pagination;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 
@@ -39,12 +40,24 @@ class CategoryController extends KbController
     public function actionView($id): string
     {
         $model = ArticleCategory::findOne($id);
-        $articles = Article::find()->where(['article_category_id' => $model->id, 'status' => 'PUBLISHED'])->limit(10)->all();
+
+        $query = Article::find()
+            ->where(['article_category_id' => $model->id, 'status' => 'PUBLISHED'])
+            ->orderBy(['created_at' => SORT_DESC]);
+
+        $countQuery = clone $query;
+        $pages = new Pagination(['totalCount' => $countQuery->count()]);
+        $pages->setPageSize(10);
+        $articles = $query->offset($pages->offset)
+            ->limit($pages->limit)
+            ->all();
 
         return $this->render('view', [
-                    'model' => $model,
-                    'articles' => $articles
+            'model' => $model,
+            'articles' => $articles,
+            'pages' => $pages,
         ]);
+
     }
 
 }

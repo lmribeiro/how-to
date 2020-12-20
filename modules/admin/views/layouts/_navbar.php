@@ -20,15 +20,18 @@ use yii\helpers\Url;
         </li>
 
 
-        <li class="dropdown"><a href="#" data-toggle="dropdown"
-                                class="nav-link dropdown-toggle menu-toggle nav-link-lg nav-link-user">
+        <li class="dropdown">
+            <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle menu-toggle nav-link-lg nav-link-user">
                 <img alt="image" src="<?= Yii::$app->user->identity->getThumb('avatar', 'thumb', true); ?>"
                      class="rounded-circle mr-1">
-                <div class="d-sm-none d-lg-inline-block"><?= Yii::t('app', 'Olá'); ?> <?= Yii::$app->user->identity->name; ?></div>
+                <div class="d-sm-none d-lg-inline-block">
+                    <?= Yii::t('app', 'Olá'); ?>
+                    <?= Yii::$app->user->identity->name; ?>
+                </div>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
 
-                <div class="dropdown-title"><?= Yii::t('app', 'Tema');  ?></div>
+                <div class="dropdown-title"><?= Yii::t('app', 'Tema'); ?></div>
                 <?php if (Yii::$app->session->get('theme')) { ?>
                     <a class="dropdown-item"
                        href="<?= Url::to(['/site/theme', 'id' => false]); ?>">
@@ -45,7 +48,7 @@ use yii\helpers\Url;
                             <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
                             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                         </svg>
-                        <?= Yii::t('app', 'Claro');  ?>
+                        <?= Yii::t('app', 'Claro'); ?>
                     </a>
                 <?php } else { ?>
                     <a class="dropdown-item"
@@ -59,7 +62,7 @@ use yii\helpers\Url;
                     </a>
                 <?php } ?>
 
-                <?php foreach (Yii::$app->controller->top_nav as $n) { ?>
+                <?php foreach (Yii::$app->controller->topNav as $n) { ?>
                     <div class="dropdown-title"><?= $n['name']; ?></div>
                     <?php foreach ($n['items'] as $item) { ?>
                         <a class="dropdown-item has-icon <?= $item['class']; ?>"

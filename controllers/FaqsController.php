@@ -12,7 +12,7 @@ use yii\helpers\Json;
  */
 class FaqsController extends BaseController
 {
-    public $top_nav = null;
+    public $topNav = null;
     public $layout = '/base';
 
     /**

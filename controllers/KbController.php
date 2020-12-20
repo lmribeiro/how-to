@@ -8,7 +8,7 @@ class KbController extends BaseController
 {
 
     public $homeUrl = "/";
-    public $top_nav = null;
+    public $topNav = null;
     public $admin = null;
 
     public function access($role, $condition = null)

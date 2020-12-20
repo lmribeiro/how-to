@@ -77,7 +77,7 @@ AppAsset::register($this);
                                     <?= Yii::t('app', 'Escuro'); ?>
                                 </a>
                             <?php } ?>
-                            <?php foreach (Yii::$app->controller->top_nav as $n) { ?>
+                            <?php foreach (Yii::$app->controller->topNav as $n) { ?>
                                 <div class="dropdown-title"><?= $n['name']; ?></div>
                                 <?php foreach ($n['items'] as $item) { ?>
                                     <a class="dropdown-item has-icon <?= $item['class']; ?>"
@@ -126,7 +126,7 @@ AppAsset::register($this);
                 <?php } ?>
             </div>
             <div class="col-md-6 col-sm-12 text-right">
-                <p>© 2020 <?= Yii::$app->name ?></p>
+                <p>© 2020 <?= Yii::$app->name ?> |  <?= Yii::t('app', 'Knowledge Base'); ?></p>
             </div>
         </div>
     </div>

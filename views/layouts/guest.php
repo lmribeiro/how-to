@@ -23,7 +23,7 @@ AppAsset::register($this);
 <body class="base skin-reverse <?= Yii::$app->session->get('theme') ? 'skin-dark' : ''; ?>">
 <?php $this->beginBody(); ?>
 <?= Alert::widget(); ?>
-<nav class="navbar navbar-expand-md navbar-dark fixed-top" style="left: 0">
+<nav class="navbar navbar-expand-md" style="left: 0">
     <div class="container">
         <a class="navbar-brand" href="<?= Yii::$app->controller->homeUrl ?>">
             <div class="base-brand">
@@ -35,6 +35,10 @@ AppAsset::register($this);
                 </svg>
             </div>
         </a>
+
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto ml-lg-3 align-items-lg-center">

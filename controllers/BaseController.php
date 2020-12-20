@@ -2,8 +2,7 @@
 
 namespace app\controllers;
 
-use app\components\Nav;
-use Yii;
+use app\components\FeNav;
 use yii\web\Controller;
 
 class BaseController extends Controller
@@ -13,8 +12,7 @@ class BaseController extends Controller
 
     public function init()
     {
-        $this->top_nav = Nav::getTopNav();
-
+        $this->topNav = FeNav::getTopNav();
         parent::init();
     }
 

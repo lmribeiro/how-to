@@ -5,7 +5,7 @@ namespace app\components;
 use Yii;
 use yii\helpers\Url;
 
-class Nav
+class FeNav
 {
 
     public static function getTopNav(): array

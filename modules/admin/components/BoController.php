@@ -10,8 +10,8 @@ use yii\filters\AccessControl;
 class BoController extends BaseController
 {
 
-    public $top_nav = null;
-    public $side_nav = null;
+    public $topNav = null;
+    public $sideNav = null;
     public $admin = null;
 
     public function actionBeforAction()
@@ -34,6 +34,8 @@ class BoController extends BaseController
 
     public function init()
     {
+        parent::init();
+
         if (isset($_GET['lg'])) {
             Yii::$app->language = trim(strip_tags($_GET['lg']));
 //            Yii::$app->session['_lang'] = Yii::$app->language;
@@ -45,12 +47,11 @@ class BoController extends BaseController
             $this->admin = Admin::findOne(Yii::$app->user->identity->id);
         }
 
-        if (!in_array($this->id, ['auth', 'start', 'address'])) {
-            $this->top_nav = Nav::getTopNav();
-            $this->side_nav = Nav::getSideNav();
+        if (!in_array($this->id, ['auth'])) {
+            $this->topNav = Nav::getTopNav();
+            $this->sideNav = Nav::getSideNav();
         }
 
-        parent::init();
     }
 
     public function behaviors()
