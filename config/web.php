@@ -7,7 +7,7 @@ $log = require __DIR__.'/log.php';
 
 $config = [
     'id' => 'how-to',
-    'name' => 'How-to | Knowledge Base',
+    'name' => 'How-to',
     'charset' => 'UTF-8',
     'timeZone' => 'Europe/Lisbon',
     'language' => 'pt',
