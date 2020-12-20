@@ -3900,4 +3900,13 @@ input[type=number] {
   padding: 0.75rem 12px;
 }
 
+.accordion > .card > .card-header {
+  margin-bottom: 0;
+}
+
+.base .pagination {
+  float: none;
+  display: inline-flex;
+}
+
 /*# sourceMappingURL=style.css.map */
