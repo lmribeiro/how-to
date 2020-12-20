@@ -73,44 +73,35 @@ $this->params['breadcrumbs'][] = $this->title;
         </section>
     <?php } ?>
 </section>
-<?php
-$id = Yii::$app->controller->actionParams['id'];
-$msgOk = '<p>' . Yii::t("app", "Obrigado pela tua opinião!") . '</p>';
-
-$script = <<< JS
-$('#vote-up').click(function(e) {
-    e.preventDefault();
-
-    $.ajax({
-        url: 'vote-up',
-        type: 'post',
-        data: {
-            _csrf: yii.getCsrfToken(),
-            id: $id
-        },
-        dataType: 'json',
-        success: function(response) {
-            $("#vote").html("$msgOk");
-        }
-    })
-});
-$('#vote-down').click(function(e) {
-    e.preventDefault();
-
-    $.ajax({
-        url: 'vote-down',
-        type: 'post',
-        data: {
-            _csrf: yii.getCsrfToken(),
-            id: $id
-        },
-        dataType: 'json',
-        success: function(response) {
-            $("#vote").html("$msgOk");
-        }
-    })
-});
-JS;
-$this->registerJs($script);
-
-?>
+<script>
+    $('#vote-up').click(function (e) {
+        e.preventDefault();
+        $.ajax({
+            url: '<?= Url::to(['article/vote-up']) ?>',
+            type: 'post',
+            data: {
+                _csrf: yii.getCsrfToken(),
+                id: <?= Yii::$app->controller->actionParams['id'] ?>
+            },
+            dataType: 'json',
+            success: function (response) {
+                $("#vote").html('<p><?= Yii::t("app", "Obrigado pela tua opinião!") ?></p>');
+            }
+        })
+    });
+    $('#vote-down').click(function (e) {
+        e.preventDefault();
+        $.ajax({
+            url: '<?= Url::to(['article/vote-down']) ?>',
+            type: 'post',
+            data: {
+                _csrf: yii.getCsrfToken(),
+                id: <?= Yii::$app->controller->actionParams['id'] ?>
+            },
+            dataType: 'json',
+            success: function (response) {
+                $("#vote").html('<p><?= Yii::t("app", "Obrigado pela tua opinião!") ?></p>');
+            }
+        })
+    });
+</script>

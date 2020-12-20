@@ -1,6 +1,7 @@
 <?php
 
 use app\models\Article;
+use yii\bootstrap4\LinkPager;
 use yii\helpers\Html;
 
 /** @var $articles Article[] */
@@ -47,3 +48,11 @@ use yii\helpers\Html;
     </div>
     <?= Html::endTag('a'); ?>
 <?php endforeach; ?>
+<div class="text-center">
+    <?php
+    echo LinkPager::widget([
+        'pagination' => $pages,
+    ]);
+    ?>
+</div>
+
