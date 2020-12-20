@@ -16,7 +16,7 @@ use yii\web\Response;
 class AuthController extends KbController
 {
 
-    public $layout = '@app/views/layouts/guest';
+    public $layout = '@app/views/layouts/login';
 
     /**
      * {@inheritdoc}
