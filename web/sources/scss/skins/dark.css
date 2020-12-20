@@ -15,7 +15,9 @@ body.skin-dark .media .media-title a {
   color: #ffffff !important;
 }
 body.skin-dark.guest {
-  background: #222222 url("../../../images/cover-dark.svg") center;
+  background-size: 70%;
+  background-color: #222222;
+  background: #222222 url(../../../images/cover-dark.svg);
 }
 body.skin-dark.guest .card.card-primary {
   background-color: #363636;
@@ -69,8 +71,9 @@ body.skin-dark.base .navbar .form-inline .form-control {
   background-color: #727272;
 }
 body.skin-dark.base .jumbotron {
-  background-size: cover;
-  background: #222222 url("../../../images/cover-dark.svg") center;
+  background-size: 70%;
+  background-color: #222222;
+  background-image: url(../../../images/cover-dark.svg);
   color: #ffffff;
   padding: 10rem 2rem;
   width: 99.8%;

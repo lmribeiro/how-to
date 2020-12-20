@@ -51,7 +51,9 @@ body.skin-dark {
     }
 
     &.guest {
-        background: color(primary) url("../../../images/cover-dark.svg") center;
+        background-size: 70%;
+        background-color: color(primary);
+        background: color(primary) url(../../../images/cover-dark.svg);
         .card.card-primary {
             background-color: color_lighten(primary, 8%);
         }
@@ -115,8 +117,9 @@ body.skin-dark {
         }
 
         .jumbotron {
-            background-size: cover;
-            background: color(primary) url("../../../images/cover-dark.svg") center;
+            background-size: 70%;
+            background-color: color(primary);
+            background-image: url(../../../images/cover-dark.svg);
             color: color(white);
             padding: 10rem 2rem;
             width: 99.8%;

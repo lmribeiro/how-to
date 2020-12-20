@@ -11,7 +11,9 @@ body.skin-reverse {
         fill: color(white);
     }
     &.guest {
-        background: color(primary) url("../../../images/cover.svg") center;
+        background-size: 70%;
+        background-color: color(primary);
+        background-image: url(../../../images/cover.svg);
     }
     &.sidebar-mini {
         .main-sidebar {
@@ -57,7 +59,9 @@ body.skin-reverse {
         }
     }
     .main-sidebar {
-        background: color(primary) url("../../../images/cover.svg") center;
+        background-size: 500%;
+        background-color: color(primary);
+        background-image: url(../../../images/cover.svg);
         .sidebar-brand {
             .logo-image{
                 fill: color(white);
@@ -125,8 +129,9 @@ body.skin-reverse {
             }
         }
         .jumbotron {
-            background-size: cover;
-            background: color(primary) url("../../../images/cover.svg") center;
+            background-size: 70%;
+            background-color: color(primary);
+            background-image: url(../../../images/cover.svg);
             color: color(fontdark);
             padding: 10rem 2rem;
             width: 100%;

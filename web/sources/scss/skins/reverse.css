@@ -8,7 +8,9 @@ body.skin-reverse .logo {
   fill: #ffffff;
 }
 body.skin-reverse.guest {
-  background: #28abb9 url("../../../images/cover.svg") center;
+  background-size: 70%;
+  background-color: #28abb9;
+  background-image: url(../../../images/cover.svg);
 }
 body.skin-reverse.sidebar-mini .main-sidebar .sidebar-menu li.active a:hover, body.skin-reverse.sidebar-mini .main-sidebar .main-sidebar .sidebar-menu li.active ul.dropdown-menu li a:hover, body.skin-reverse.sidebar-mini .main-sidebar .main-sidebar .sidebar-menu li.active ul.dropdown-menu li a {
   background-color: #ffffff;
@@ -37,7 +39,9 @@ body.skin-reverse.sidebar-mini .main-sidebar .sidebar-menu li ul.dropdown-menu l
   color: #28abb9;
 }
 body.skin-reverse .main-sidebar {
-  background: #28abb9 url("../../../images/cover.svg") center;
+  background-size: 500%;
+  background-color: #28abb9;
+  background-image: url(../../../images/cover.svg);
 }
 body.skin-reverse .main-sidebar .sidebar-brand .logo-image {
   fill: #ffffff;
@@ -87,8 +91,9 @@ body.skin-reverse.base .navbar .form-inline .form-control {
   background-color: #99e1e9;
 }
 body.skin-reverse.base .jumbotron {
-  background-size: cover;
-  background: #28abb9 url("../../../images/cover.svg") center;
+  background-size: 70%;
+  background-color: #28abb9;
+  background-image: url(../../../images/cover.svg);
   color: #34395e;
   padding: 10rem 2rem;
   width: 100%;
