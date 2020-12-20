@@ -43,19 +43,11 @@ class RegisterForm extends Model
     /**
      * Register admins.
      *
-     * @return User|null the saved model or null if saving fails
+     * @return Admin|null the saved model or null if saving fails
      */
     public function register()
     {
         if (!$this->validate()) {
-            return null;
-        }
-
-        $merchant = new Merchant();
-        $merchant->email = $this->email;
-        $merchant->name = $this->name;
-        $merchant->status = 1;
-        if (!$merchant->save()) {
             return null;
         }
 

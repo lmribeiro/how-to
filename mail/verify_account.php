@@ -13,7 +13,7 @@ use app\components\CurtosService;
 
 // $resetLink = $link->short;
 $resetLink = Yii::$app->urlManager->createAbsoluteUrl([
-	'admin/auth/verify-account',
+	'auth/verify-account',
 	'key' => $admin->auth_key
 ]);
 

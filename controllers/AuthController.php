@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\Admin;
+use app\models\CompleteForm;
 use app\models\LoginForm;
 use app\models\PasswordResetByEmail;
 use app\models\PasswordResetByUsername;
