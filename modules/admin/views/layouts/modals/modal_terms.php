@@ -2,7 +2,7 @@
 
 use app\models\Settings;
 
-$terms =  Settings::find()->where(['key' => 'terms_'.Yii::$app->language ])->one();
+$terms =  Settings::find()->where(['key' => 'terms' ])->one();
 ?>
 
 <!-- Modal -->

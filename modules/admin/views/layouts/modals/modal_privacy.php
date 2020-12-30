@@ -2,7 +2,7 @@
 
 use app\models\Settings;
 
-$policy =  Settings::find()->where(['key' => 'privacy_'.Yii::$app->language ])->one();
+$policy =  Settings::find()->where(['key' => 'privacy' ])->one();
 ?>
 
 <!-- Modal -->
