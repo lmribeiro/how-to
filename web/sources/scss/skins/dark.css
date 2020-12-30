@@ -117,15 +117,6 @@ body.skin-dark.base .site-footer {
 body.skin-dark.base .site-footer #scroll-up {
   color: #ffffff;
   background-color: #222222;
-  display: inline-block;
-  width: 34px;
-  height: 34px;
-  border-radius: 100%;
-  text-align: center;
-  font-size: 21px;
-  -webkit-transition: 0.2s ease;
-  -o-transition: 0.2s ease;
-  transition: 0.2s ease;
 }
 body.skin-dark.base .footer-menu {
   list-style: none;
