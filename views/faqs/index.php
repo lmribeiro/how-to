@@ -11,17 +11,16 @@ use yii\helpers\Url;
 /* @var $categories  FaqCategory[] */
 /* @var $faqs Faq[] */
 
-$this->title = Yii::t('app', 'Perguntas Frequentes');
+$this->title = Yii::t('app', 'FAQs');
 
 ?>
-<br/>
-<?php  if (!Yii::$app->user->isGuest) {?>
+
 <div class="jumbotron">
     <div class="container">
         <h1 class="display-3 text-center text-white"><?= $this->title ?></h1>
+        <h4 class="text-center text-white"><?= Yii::t('app', 'Perguntas Frequentes') ?></h4>
     </div>
 </div>
-<?php } ?>
 <div class="container">
     <div class="row">
 

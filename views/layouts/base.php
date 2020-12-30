@@ -36,6 +36,20 @@ AppAsset::register($this);
         </a>
 
         <div class="collapse navbar-collapse" id="">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto ml-lg-3 align-items-lg-center">
+                    <li class="nav-item">
+                        <a href="<?= Url::to(['/']) ?>" class="nav-link">
+                            <?= Yii::t('app', 'Knowledge Base'); ?>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?= Url::to(['/faqs']) ?>" class="nav-link">
+                            <?= Yii::t('app', 'FAQs'); ?>
+                        </a>
+                    </li>
+                </ul>
+            </div>
             <div class="d-flex ml-auto">
                 <ul class="navbar-nav navbar-right text-white">
 
@@ -47,11 +61,12 @@ AppAsset::register($this);
                             <div class="d-sm-none d-lg-inline-block"><?= Yii::t('app', 'Olá'); ?> <?= Yii::$app->user->identity->name; ?></div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <div class="dropdown-title"><?= Yii::t('app', 'Tema');  ?></div>
+                            <div class="dropdown-title"><?= Yii::t('app', 'Tema'); ?></div>
                             <?php if (Yii::$app->session->get('theme')) { ?>
                                 <a class="dropdown-item"
                                    href="<?= Url::to(['site/theme', 'id' => false]); ?>">
-                                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-top: -4px;" width="16" height="16" viewBox="0 0 24 24"
+                                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-top: -4px;" width="16"
+                                         height="16" viewBox="0 0 24 24"
                                          fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                          stroke-linejoin="round" class="feather feather-sun">
                                         <circle cx="12" cy="12" r="5"></circle>
@@ -64,12 +79,13 @@ AppAsset::register($this);
                                         <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
                                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                                     </svg>
-                                    <?= Yii::t('app', 'Claro');  ?>
+                                    <?= Yii::t('app', 'Claro'); ?>
                                 </a>
                             <?php } else { ?>
                                 <a class="dropdown-item"
                                    href="<?= Url::to(['site/theme', 'id' => true]); ?>">
-                                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-top: -4px;" width="16" height="16" viewBox="0 0 24 24"
+                                    <svg xmlns="http://www.w3.org/2000/svg" style="margin-top: -4px;" width="16"
+                                         height="16" viewBox="0 0 24 24"
                                          fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                          stroke-linejoin="round" class="feather feather-moon">
                                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
@@ -114,19 +130,19 @@ AppAsset::register($this);
         <div class="row">
             <div class="col-md-6 col-sm-12">
                 <?php if (Yii::$app->controller->id == 'faqs') { ?>
-                <a href="<?= Url::to(['/']) ?>" >
-                    <i class="fas fa-graduation-cap"></i>
-                    <?= Yii::t('app', 'Knowledge Base'); ?>
-                </a>
+                    <a href="<?= Url::to(['/']) ?>">
+                        <i class="fas fa-graduation-cap"></i>
+                        <?= Yii::t('app', 'Knowledge Base'); ?>
+                    </a>
                 <?php } else { ?>
-                    <a href="<?= Url::to(['/faqs/index']) ?>" >
+                    <a href="<?= Url::to(['/faqs/index']) ?>">
                         <i class="fas fa-question-circle"></i>
-                        <?= Yii::t('app', 'Perguntas Frequentes'); ?>
+                        <?= Yii::t('app', 'FAQs'); ?>
                     </a>
                 <?php } ?>
             </div>
             <div class="col-md-6 col-sm-12 text-right">
-                <p>© 2020 <?= Yii::$app->name ?> |  <?= Yii::t('app', 'Knowledge Base'); ?></p>
+                <p>© 2020 <?= Yii::$app->name ?> | <?= Yii::t('app', 'Knowledge Base'); ?></p>
             </div>
         </div>
     </div>

@@ -7,9 +7,7 @@ use yii\widgets\ActiveForm;
 /* @var $model app\models\Admin */
 /* @var $form yii\widgets\ActiveForm */
 
-$this->title = Yii::t('app', 'Registo');
-//$this->params['modals'][] = 'modal_terms';
-//$this->params['modals'][] = 'modal_privacy';
+$this->title = Yii::t('app', 'Criar conta de administrador');
 
 ?>
 
@@ -25,14 +23,12 @@ $this->title = Yii::t('app', 'Registo');
         <?= $form->field($model, 'email')->textInput(['maxlength' => true]); ?>
 
         <div class="form-group">
-            <?= Html::submitButton(Yii::t('app', 'Registar'), ['class' => 'btn btn-primary btn-lg btn-block', 'type' => 'submit', 'id' => 'register-btn']); ?>
+            <?= Html::submitButton(Yii::t('app', 'Criar'), ['class' => 'btn btn-primary btn-lg btn-block', 'type' => 'submit', 'id' => 'register-btn']); ?>
         </div>
     </div>
 
     <?php ActiveForm::end(); ?>
-    <div class="text-muted text-center">
-        <?= Html::a(Yii::t('app', 'Ir para o Login'), '/auth/login'); ?>
-    </div>
+
     <br/>
 </div>
 
