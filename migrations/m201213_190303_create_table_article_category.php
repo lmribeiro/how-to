@@ -15,6 +15,8 @@ class m201213_190303_create_table_article_category extends Migration
 			'created_at' => $this->timestamp()->notNull()->defaultExpression('CURRENT_TIMESTAMP'),
 			'updated_at' => $this->timestamp()->null()->append('ON UPDATE CURRENT_TIMESTAMP')
 		]);
+
+        $this->insert('{{%article_category}}', ['name' => 'Geral']);
 	}
 
 	public function safeDown()

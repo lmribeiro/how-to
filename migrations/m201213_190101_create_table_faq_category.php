@@ -15,6 +15,8 @@ class m201213_190101_create_table_faq_category extends Migration
             'created_at' => $this->timestamp()->notNull()->defaultExpression('CURRENT_TIMESTAMP'),
             'updated_at' => $this->timestamp()->null()->defaultExpression('CURRENT_TIMESTAMP')->append('ON UPDATE CURRENT_TIMESTAMP')
         ]);
+
+        $this->insert('{{%faq_category}}', ['name' => 'Geral']);
     }
 
     public function safeDown()
