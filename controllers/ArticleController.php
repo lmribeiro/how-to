@@ -5,11 +5,13 @@ namespace app\controllers;
 use app\models\Article;
 use app\models\ArticleTags;
 use Yii;
+use yii\base\ExitException;
+use yii\base\InvalidConfigException;
+use yii\db\StaleObjectException;
 use yii\helpers\Json;
 
-class ArticleController extends KbController
+class ArticleController extends BaseController
 {
-
     public function behaviors()
     {
         return [
@@ -31,6 +33,10 @@ class ArticleController extends KbController
         ];
     }
 
+    /**
+     * View
+     * @param $id Article's ID
+     */
     public function actionView($id)
     {
         $model = Article::findOne($id);
@@ -45,6 +51,9 @@ class ArticleController extends KbController
         ]);
     }
 
+    /**
+     * Create
+     */
     public function actionCreate()
     {
         Yii::$app->layout = 'article';
@@ -69,6 +78,11 @@ class ArticleController extends KbController
         ]);
     }
 
+    /**
+     * Search
+     * @throws InvalidConfigException
+     * @throws ExitException
+     */
     public function actionSearch()
     {
         $search = Yii::$app->request->get('search');
@@ -95,11 +109,17 @@ class ArticleController extends KbController
             ];
         }
 
-        echo Json::encode($result);
-        exit();
+        return Json::encode($result);
+        Yii::$app->end();
     }
 
-    public function actionVoteUp(): string
+    /**
+     * Vote up
+     * @throws ExitException
+     * @throws StaleObjectException
+     * @throws \Throwable
+     */
+    public function actionVoteUp()
     {
         $id = Yii::$app->request->post('id');
         $article = Article::findOne($id);
@@ -110,7 +130,13 @@ class ArticleController extends KbController
         Yii::$app->end();
     }
 
-    public function actionVoteDown(): string
+    /**
+     * Vote down
+     * @throws ExitException
+     * @throws StaleObjectException
+     * @throws \Throwable
+     */
+    public function actionVoteDown()
     {
         $id = Yii::$app->request->post('id');
         $article = Article::findOne($id);

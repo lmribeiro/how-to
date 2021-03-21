@@ -6,9 +6,8 @@ use app\models\Article;
 use app\models\ArticleTags;
 use yii\data\Pagination;
 
-class TagController extends KbController
+class TagController extends BaseController
 {
-
     public function behaviors()
     {
         return [
@@ -30,6 +29,11 @@ class TagController extends KbController
         ];
     }
 
+    /**
+     * View
+     * @param $id Tag's ID
+     * @return string
+     */
     public function actionView($id)
     {
         $model = ArticleTags::findOne($id);
@@ -39,8 +43,7 @@ class TagController extends KbController
             ->where(['article_tags_article.article_tag_id' => $model->id, 'status' => 'PUBLISHED'])
             ->orderBy(['created_at' => SORT_DESC]);
 
-        $countQuery = clone $query;
-        $pages = new Pagination(['totalCount' => $countQuery->count()]);
+        $pages = new Pagination(['totalCount' => $query->count()]);
         $pages->setPageSize(10);
         $articles = $query->offset($pages->offset)
             ->limit($pages->limit)

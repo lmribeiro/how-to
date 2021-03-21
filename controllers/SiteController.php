@@ -9,9 +9,8 @@ use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Response;
 
-class SiteController extends KbController
+class SiteController extends BaseController
 {
-
     public function behaviors()
     {
         return [
@@ -33,19 +32,17 @@ class SiteController extends KbController
         ];
     }
 
+    /**
+     * Index
+     * @return string
+     */
     public function actionIndex()
     {
-        if (Yii::$app->user->isGuest) {
-            $this->layout = 'guest';
-            return $this->render('index', []);
-        }
-
-        $query  = Article::find()
+        $query = Article::find()
             ->where(['status' => 'PUBLISHED'])
             ->orderBy(['created_at' => SORT_DESC]);
 
-        $countQuery = clone $query;
-        $pages = new Pagination(['totalCount' => $countQuery->count()]);
+        $pages = new Pagination(['totalCount' => $query->count()]);
         $pages->setPageSize(10);
         $articles = $query->offset($pages->offset)
             ->limit($pages->limit)

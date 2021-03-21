@@ -12,11 +12,9 @@ use app\models\ResetPassword;
 use app\models\SetPasswordForm;
 use Yii;
 use yii\filters\AccessControl;
-use yii\web\Response;
 
-class AuthController extends KbController
+class AuthController extends BaseController
 {
-
     public $layout = '@app/views/layouts/login';
 
     /**
@@ -47,7 +45,8 @@ class AuthController extends KbController
     }
 
     /**
-     * Verify Account action.
+     * Verify Account
+     * @param $key User's key
      */
     public function actionVerifyAccount($key)
     {
@@ -75,7 +74,7 @@ class AuthController extends KbController
     }
 
     /**
-     * Login action.
+     * Login
      */
     public function actionLogin()
     {
@@ -117,6 +116,9 @@ class AuthController extends KbController
         ]);
     }
 
+    /**
+     * Signup
+     */
     public function actionSignup()
     {
         $model = new RegisterForm();
@@ -152,7 +154,7 @@ class AuthController extends KbController
     }
 
     /**
-     * Reset Password.
+     * Reset Password
      */
     public function actionResetPassword()
     {
@@ -206,7 +208,8 @@ class AuthController extends KbController
     }
 
     /**
-     * Set Password.
+     * Set Password
+     * @param false $token Password reset token
      */
     public function actionSetPassword($token = false)
     {
@@ -242,9 +245,7 @@ class AuthController extends KbController
     }
 
     /**
-     * Logout action.
-     *
-     * @return Response
+     * Logout
      */
     public function actionLogout()
     {

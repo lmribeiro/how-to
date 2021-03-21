@@ -5,7 +5,9 @@ namespace app\controllers;
 use app\models\Faq;
 use app\models\FaqCategory;
 use Yii;
+use yii\base\ExitException;
 use yii\helpers\Json;
+use yii\web\Response;
 
 /**
  * FaqController implements the CRUD actions for Faq model.
@@ -26,16 +28,17 @@ class FaqsController extends BaseController
             ->where(['faq_category_id' => $categories[0]->id])
             ->all();
 
-        if (Yii::$app->user->isGuest) {
-            $this->layout = 'guest';
-        }
-
         return $this->render('index', [
             'categories' => $categories,
             'faqs' => $faqs,
         ]);
     }
 
+    /**
+     * Get Faqs
+     * @param $category Faq's Category ID
+     * @throws ExitException
+     */
     public function actionGetFaqs($category)
     {
         $faqs = Faq::find()
@@ -46,6 +49,10 @@ class FaqsController extends BaseController
         Yii::$app->end();
     }
 
+    /**
+     * Send Question
+     * @return Response
+     */
     public function actionSendQuestion()
     {
         $post = Yii::$app->request->post();

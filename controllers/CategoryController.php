@@ -8,9 +8,8 @@ use yii\data\Pagination;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 
-class CategoryController extends KbController
+class CategoryController extends BaseController
 {
-
     public function behaviors()
     {
         return [
@@ -33,11 +32,10 @@ class CategoryController extends KbController
     }
 
     /**
-     *
-     * @param $id
-     * @return string
+     * View
+     * @param $id Category's ID
      */
-    public function actionView($id): string
+    public function actionView($id)
     {
         $model = ArticleCategory::findOne($id);
 
@@ -45,8 +43,7 @@ class CategoryController extends KbController
             ->where(['article_category_id' => $model->id, 'status' => 'PUBLISHED'])
             ->orderBy(['created_at' => SORT_DESC]);
 
-        $countQuery = clone $query;
-        $pages = new Pagination(['totalCount' => $countQuery->count()]);
+        $pages = new Pagination(['totalCount' => $query->count()]);
         $pages->setPageSize(10);
         $articles = $query->offset($pages->offset)
             ->limit($pages->limit)
@@ -57,7 +54,5 @@ class CategoryController extends KbController
             'articles' => $articles,
             'pages' => $pages,
         ]);
-
     }
-
 }
