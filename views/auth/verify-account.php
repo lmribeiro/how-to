@@ -1,11 +1,13 @@
 <?php
 
+use app\models\CompleteForm;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\web\View;
 
-/* @var $this yii\web\View */
-/* @var $model app\models\Admin */
-/* @var $form yii\widgets\ActiveForm */
+/* @var View $this */
+/* @var ActiveForm $form */
+/* @var CompleteForm $model */
 
 $this->title = Yii::t('app', 'Validar conta');
 ?>

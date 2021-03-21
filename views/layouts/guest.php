@@ -1,12 +1,12 @@
 <?php
-/* @var $this View */
-
-/* @var $content string */
 
 use app\assets\AppAsset;
 use app\widgets\Alert;
 use yii\helpers\Url;
 use yii\web\View;
+
+/* @var $this View */
+/* @var $content string */
 
 AppAsset::register($this);
 

@@ -1,6 +1,9 @@
 <?php
 
+use app\models\ArticleCategory;
 use yii\widgets\ListView;
+
+/** @var ArticleCategory[] $categoryProvider */
 ?>
 <div class="card">
     <div class="card-header">

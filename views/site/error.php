@@ -1,11 +1,11 @@
 <?php
-/* @var $this yii\web\View */
-/* @var $name string */
-/* @var $message string */
-/* @var $exception Exception */
 
-use yii\helpers\Html;
-use yii\helpers\Url;
+use yii\web\View;
+
+/* @var View $this */
+/* @var string $name  */
+/* @var string $message */
+/* @var Exception $exception */
 
 $this->title = $exception->statusCode;
 
@@ -17,7 +17,7 @@ $this->title = $exception->statusCode;
                 <h1 class="display-2 mb-3"><?= $exception->statusCode ?></h1>
                 <p class="lead">
                     <?php if ($exception->statusCode == 400) : ?>
-                    <h4><?= Yii::t('app', 'Pedido inválido') ?></h4>
+                <h4><?= Yii::t('app', 'Pedido inválido') ?></h4>
                 <?php endif; ?>
                 <?php if ($exception->statusCode == 403) : ?>
                     <h4><?= Yii::t('app', 'Não tem permissão para aceder a esta página') ?></h4>
@@ -37,7 +37,7 @@ $this->title = $exception->statusCode;
                     <span class="icon icon-xs mr-3">
                         <i class="fas fa-arrow-left"></i>
                     </span>
-                    <?= Yii::t('app', 'Voltar') ?> 
+                    <?= Yii::t('app', 'Voltar') ?>
                 </a>
             </div>
         </div>

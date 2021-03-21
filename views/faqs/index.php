@@ -1,15 +1,18 @@
 <?php
 
 use app\models\Faq;
+use app\models\FaqSearch;
 use app\models\FaqCategory;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\View;
+use yii\data\ActiveDataProvider;
 
-/* @var $this yii\web\View */
-/* @var $searchModel app\models\FaqSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
-/* @var $categories  FaqCategory[] */
-/* @var $faqs Faq[] */
+/* @var View $this */
+/* @var FaqSearch $searchModel */
+/* @var ActiveDataProvider $dataProvider */
+/* @var FaqCategory[] $categories */
+/* @var Faq[] $faqs */
 
 $this->title = Yii::t('app', 'FAQs');
 

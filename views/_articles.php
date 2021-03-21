@@ -2,9 +2,11 @@
 
 use app\models\Article;
 use yii\bootstrap4\LinkPager;
+use yii\data\Pagination;
 use yii\helpers\Html;
 
-/** @var $articles Article[] */
+/** @var Article[] $articles */
+/** @var Pagination $pages */
 
 ?>
 

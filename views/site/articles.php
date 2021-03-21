@@ -2,7 +2,7 @@
 
 use app\models\Article;
 
-/** @var $articles Article[] */
+/** @var Article[] $articles */
 
 $this->title = Yii::t('app', 'Bem-vindo');
 $this->params['breadcrumbs'][] = $this->title;
