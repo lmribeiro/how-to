@@ -41,12 +41,9 @@ class FaqsController extends BaseController
      */
     public function actionGetFaqs($category)
     {
-        $faqs = Faq::find()
+        return Json::encode(Faq::find()
             ->where(['faq_category_id' => $category])
-            ->all();
-
-        return Json::encode($faqs);
-        Yii::$app->end();
+            ->all());
     }
 
     /**

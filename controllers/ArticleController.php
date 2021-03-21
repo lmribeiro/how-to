@@ -110,16 +110,15 @@ class ArticleController extends BaseController
         }
 
         return Json::encode($result);
-        Yii::$app->end();
     }
 
     /**
      * Vote up
-     * @throws ExitException
+     * @return string
      * @throws StaleObjectException
      * @throws \Throwable
      */
-    public function actionVoteUp()
+    public function actionVoteUp(): string
     {
         $id = Yii::$app->request->post('id');
         $article = Article::findOne($id);
@@ -127,16 +126,15 @@ class ArticleController extends BaseController
         $article->update();
 
         return Json::encode('OK');
-        Yii::$app->end();
     }
 
     /**
      * Vote down
-     * @throws ExitException
+     * @return string
      * @throws StaleObjectException
      * @throws \Throwable
      */
-    public function actionVoteDown()
+    public function actionVoteDown(): string
     {
         $id = Yii::$app->request->post('id');
         $article = Article::findOne($id);
@@ -144,6 +142,5 @@ class ArticleController extends BaseController
         $article->update();
 
         return Json::encode('OK');
-        Yii::$app->end();
     }
 }

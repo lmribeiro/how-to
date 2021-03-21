@@ -3,6 +3,7 @@
 namespace app\components;
 
 use Yii;
+use yii\helpers\Json;
 use yii\httpclient\Client;
 
 class CurtosService
@@ -18,28 +19,26 @@ class CurtosService
 
     public function getShortLink($target)
     {
-        $url = $this->apiUrl.'create';
+        $url = $this->apiUrl . 'create';
         try {
-
             $client = new Client();
             $response = $client->createRequest()
-                    ->setMethod('POST')
-                    ->setHeaders([
-                        'Authorization' => $this->apiKey,
-                        'Content-Type' => 'application/json',
-                    ])
-                    ->setContent(json_encode(['target' => $target]))
-                    ->setUrl($url)
-                    ->send();
-            $result = json_decode($response->getContent());
+                ->setMethod('POST')
+                ->setHeaders([
+                    'Authorization' => $this->apiKey,
+                    'Content-Type' => 'application/json',
+                ])
+                ->setContent(json_encode(['target' => $target]))
+                ->setUrl($url)
+                ->send();
+            $result = Json::decode($response->getContent());
             if ($result->code == 200 || $result->code == 201) {
                 return $result->data;
             }
             return false;
         } catch (\Throwable $e) {
-            Yii::error('CurtosService::getShortLink ERROR :: '.json_encode($e->getMessage()));
+            Yii::error('CurtosService::getShortLink ERROR :: ' . Json::encode($e->getMessage()));
             return false;
         }
     }
-
 }
